@@ -15,7 +15,6 @@ module.exports = {
   rules: {
     "react/function-component-definition": "off",
     "react/jsx-filename-extension": "off",
-    "react/jsx-max-depth": "off",
     "react/jsx-no-bind": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
