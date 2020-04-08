@@ -1,0 +1,10 @@
+{
+ "*.ts": [
+  "eslint 'src/**' --fix --max-warnings=0",
+  "git add"
+ ],
+ "*.tsx": [
+  "eslint 'src/**' --fix --max-warnings=0",
+  "git add"
+ ]
+}
