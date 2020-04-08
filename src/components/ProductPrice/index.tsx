@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ShippingIcon from '../../assets/icons/ic_shipping@2x.png.png'
+
 import "./product-price.styles.scss";
 
 export interface ProductPriceProps {
@@ -19,10 +21,10 @@ const ProductPrice: React.FC<ProductPriceProps> = ({
     </span>
     <span className="product__informations__price__value">{value}</span>
 
-    {hideShippingIcon && (
+    {!hideShippingIcon && (
       <img
         className="shipping_icon"
-        src="./assets/icons/ic_shipping@2x.png.png"
+        src={ShippingIcon}
       />
     )}
   </div>
