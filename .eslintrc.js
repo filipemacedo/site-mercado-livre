@@ -19,6 +19,7 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "react/jsx-no-literals": "off"
+    "react/jsx-no-literals": "off",
+    "react/display-name": "off"
   }
 };
