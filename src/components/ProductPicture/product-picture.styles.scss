@@ -1,0 +1,14 @@
+.product__picture {
+  display: flex;
+  margin-right: 16px;
+  height: 180px;
+  width: 180px;
+  justify-content: center;
+
+  img {
+    border-radius: 4px;
+    max-height: 180px;
+    max-width: 180px;
+    object-fit: cover;
+  }
+}
