@@ -2,13 +2,13 @@ import React from 'react';
 
 import "./product-price.styles.scss";
 
-interface Props {
+export interface ProductPriceProps {
   symbolCurrency?: string;
   value: string;
   hideShippingIcon?: boolean;
 }
 
-const ProductPrice: React.FC<Props> = ({
+const ProductPrice: React.FC<ProductPriceProps> = ({
   symbolCurrency,
   value,
   hideShippingIcon = false,
