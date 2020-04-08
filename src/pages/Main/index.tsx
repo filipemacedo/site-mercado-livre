@@ -1,12 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import Header from '../../components/Header';
 
 const Main: React.FC = () => {
-  const state = useSelector(state => state);
-
-  console.log({ state });
-
-  return <h1>Pagina principal</h1>;
+  return <Header />;
 };
 
 export default Main;
