@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/product-description.styles.scss';
+import './product-description.styles.scss';
 
 export interface ProductDescriptionProps {
   description: string;

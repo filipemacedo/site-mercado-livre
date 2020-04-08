@@ -1,0 +1,24 @@
+ol.products-list {
+ display: flex;
+ flex-direction: column;
+
+ li {
+  flex: 1;
+  display: flex;
+  list-style: none;
+
+  &:not(:last-child) {
+   border-bottom: 1px solid #eee;
+  }
+
+  flex-direction: row;
+  padding: 16px 0;
+  margin: 0 16px;
+
+  .products-list__product {
+   display: flex;
+   flex-direction: row;
+   flex: 1;
+  }
+ }
+}
