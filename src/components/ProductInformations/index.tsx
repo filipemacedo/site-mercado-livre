@@ -19,9 +19,10 @@ const ProductInformations: React.FC<Props> = ({
   description,
   value,
   symbolCurrency,
+  hideShippingIcon
 }) => (
   <div className={`product__informations ${className}`}>
-    <ProductPrice symbolCurrency={symbolCurrency} value={value} />
+    <ProductPrice hideShippingIcon={hideShippingIcon} symbolCurrency={symbolCurrency} value={value} />
     <ProductDescription description={description} />
   </div>
 );
