@@ -1,7 +1,8 @@
 import React from 'react';
 import BreadcrumbList from '../BreadcrumbList';
 
-import "./navigation-breadcrumb.styles.scss";
+import './navigation-breadcrumb.styles.scss';
+import Container from '../Container';
 
 interface Props {
   categories: string[];
@@ -9,11 +10,11 @@ interface Props {
 
 const NavigationBreadcrumb: React.FC<Props> = ({ categories }) => {
   return (
-    <section className="navigation container">
+    <Container>
       <div className="navigation-breadcrumb">
         <BreadcrumbList categories={categories} />
       </div>
-    </section>
+    </Container>
   );
 };
 
