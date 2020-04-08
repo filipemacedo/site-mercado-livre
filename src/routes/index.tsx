@@ -5,6 +5,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import history from './history';
 import Main from '../pages/Main';
+import ProductList from '../pages/Products';
 
 const Routes: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Routes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route component={Main} exact path="/" />
+        <Route component={ProductList} path="/items" />
       </Switch>
     </BrowserRouter>
     </ConnectedRouter>
