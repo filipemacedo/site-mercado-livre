@@ -1,5 +1,25 @@
 .product__informations {
- display: flex;
- flex: 4;
- flex-direction: column;
+  display: flex;
+  flex: 4;
+  flex-wrap: wrap;
+
+  .product__price {
+    margin-bottom: 32px;
+    min-width: 622px;
+  }
+
+  .product__location {
+    font-size: 12px;
+    margin-top: 32px;
+    color: #666;
+    min-width: 93px;
+    text-align: center;
+  }
+
+  .product__name {
+    max-width: 410px;
+
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
