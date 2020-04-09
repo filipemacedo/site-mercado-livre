@@ -3,4 +3,13 @@
   max-height: 180px;
   max-width: 180px;
   object-fit: cover;
+
+  &.product__picture--large {
+    max-height: 680px;
+    max-width: 680px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+  }
 }
