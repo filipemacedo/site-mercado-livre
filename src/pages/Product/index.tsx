@@ -1,34 +1,35 @@
-/* eslint-disable react/jsx-max-depth */
 import React from 'react';
-import NavigationBreadcrumb from '../../components/NavigationBreadcrumb';
-import Header from '../../components/Header';
 import ContainerBox from '../../components/ContainerBox';
-import ProductInformations from '../../components/ProductInformations';
-import ProductPicture from '../../components/ProductPicture';
-import MacbookImage from '../../assets/images/macbook.webp';
+import DefaultLayout from '../../layouts/Default';
+import DesiredProduct from '../../components/DesiredProduct';
+
+import './product.styles.scss';
 
 const Product = () => {
   return (
-   <>
-    <Header />
-    <main>
-      <NavigationBreadcrumb
-        categories={[
-          'Eletrônica, Áudio e Vídeo',
-          'iPod',
-          'Reproductores',
-          'iPod Touch',
-          '32 GB',
-        ]}
-      />
+    <DefaultLayout
+      categories={[
+        'Eletrônica, Áudio e Vídeo',
+        'iPod',
+        'Reproductores',
+        'iPod Touch',
+        '32 GB',
+      ]}>
       <section className="product">
         <ContainerBox>
-         <ProductPicture alt="" src={MacbookImage} />
-         <ProductInformations hideShippingIcon name="Macbook Pro" value="1980" />
+          <DesiredProduct
+            condition="Nuevo"
+            description="Enviamos fotos e videos da máquina assim que efetuada a compra comprovando o funcionamento da máquina,
+              assim como a fonte da máquina. Enviamos fotos e videos da máquina assim que efetuada a compra comprovando o funcionamento da máquina,
+              assim como a fonte da máquina."
+            name="Macbook Pro I5 2.7ghz/8gb 1867mhz/ssd 256gb Mod A1502/2015"
+            onPurchaseClick={() => ({})}
+            sales={200}
+            value={1980}
+          />
         </ContainerBox>
       </section>
-    </main>
-  </>
+    </DefaultLayout>
   );
 };
 

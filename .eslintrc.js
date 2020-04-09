@@ -20,6 +20,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "react/jsx-no-literals": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/jsx-max-depth": "off"
   }
 };
