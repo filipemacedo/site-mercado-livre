@@ -16,14 +16,14 @@ const ProductPrice: React.FC<ProductPriceProps> = ({
   hideShippingIcon = false,
 }) => (
   <div className="product__price">
-    <span className="product__price__symbol">
+    <span className="price__symbol">
       {symbolCurrency || 'R$'}
     </span>
-    <span className="product__price__value">{value}</span>
+    <span className="price__value">{value}</span>
 
     {!hideShippingIcon && (
       <img
-        className="shipping_icon"
+        className="shipping-icon"
         src={ShippingIcon}
       />
     )}
