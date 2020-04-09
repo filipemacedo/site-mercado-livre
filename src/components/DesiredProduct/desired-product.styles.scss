@@ -1,0 +1,26 @@
+.desired-product {
+ margin: 32px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+
+ .product__informations {
+   margin-left: 16px;
+   
+   .btn {
+     margin-top: 32px;
+     order: 3;
+   }
+ }
+
+ .product__picture--large {
+   flex: 2;
+ }
+
+ .product__description {
+   flex: 1;
+   flex-basis: 100%;
+   margin-top: 32px;
+   max-width: 622px;
+ }
+}
