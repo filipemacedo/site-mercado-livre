@@ -16,7 +16,15 @@ const ProductsList: React.FC<Props> = () => {
         <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
         <ProductInformations
           hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml"
+          name="Egeo Desodorante Colônia Dolce 90ml 
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          Egeo Desodorante Colônia Dolce 90ml
+          "
           value={1998}
         />
       </li>

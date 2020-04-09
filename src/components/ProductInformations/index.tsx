@@ -25,21 +25,23 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
   hideLocation = false,
   size = 'default',
 }) => (
-  <div className={`product__informations product__informations--${size}`}>
+  <section className={`product__informations product__informations--${size}`}>
     {condition && sales && (
       <span className="product-informations__sales">
         {condition} - {sales} vendidos
       </span>
     )}
-    <ProductPrice
-      hideShippingIcon={hideShippingIcon}
-      symbolCurrency={symbolCurrency}
-      value={value}
-    />
-    {!hideLocation && <p className="product__location">Canada</p>}
+    <div className="product__general-informations">
+      <ProductPrice
+        hideShippingIcon={hideShippingIcon}
+        symbolCurrency={symbolCurrency}
+        value={value}
+      />
+      {!hideLocation && <p className="product__location">Canada</p>}
+    </div>
     <h1 className="product__name">{name}</h1>
     {children}
-  </div>
+  </section>
 );
 
 export default ProductInformations;
