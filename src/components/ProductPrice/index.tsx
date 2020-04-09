@@ -6,7 +6,7 @@ import "./product-price.styles.scss";
 
 export interface ProductPriceProps {
   symbolCurrency?: string;
-  value: string;
+  value: number;
   hideShippingIcon?: boolean;
 }
 
