@@ -1,7 +1,12 @@
 .product__description {
- max-width: 410px;
-
+ h2 {
+  color: #333;
+  font-size: 28px;
+ }
+ 
  p {
-  font-size: 18px;
+  margin: 32px 0;
+  font-size: 16px;
+  color: #999;
  }
 }
