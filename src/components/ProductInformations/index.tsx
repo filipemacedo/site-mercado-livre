@@ -23,7 +23,7 @@ const ProductInformations: React.FC<Props> = ({
       value={value}
     />
     <p className="product__location">Canada</p>
-    <h2 className="product__name">{name}</h2>
+    <h1 className="product__name">{name}</h1>
   </div>
 );
 

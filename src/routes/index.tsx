@@ -5,7 +5,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import history from './history';
 import Main from '../pages/Main';
-import ProductList from '../pages/Products';
+import SearchResults from '../pages/SearchResults';
+import Product from '../pages/Product';
 
 const Routes: React.FC = () => {
   return (
@@ -13,7 +14,8 @@ const Routes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route component={Main} exact path="/" />
-        <Route component={ProductList} path="/items" />
+        <Route component={Product} path="/items/:id" />
+        <Route component={SearchResults} path="/items" />
       </Switch>
     </BrowserRouter>
     </ConnectedRouter>

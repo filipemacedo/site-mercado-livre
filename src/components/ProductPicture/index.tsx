@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./product-picture.styles.scss";
+import './product-picture.styles.scss';
 
 interface Props {
   src: string;
@@ -8,9 +8,7 @@ interface Props {
 }
 
 const ProductPicture: React.FC<Props> = ({ src, alt }) => (
-  <div className="product__picture">
-    <img alt={alt} src={src} />
-  </div>
+  <img alt={alt} className="product__picture" src={src} />
 );
 
 export default ProductPicture;

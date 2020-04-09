@@ -1,9 +1,7 @@
 .product__price {
- display: flex;
- align-items: center;
-
  .shipping_icon {
   margin-left: 10px;
+  justify-content: center;
  }
 
  span {

@@ -1,24 +1,43 @@
 ol.products-list {
- display: flex;
- flex-direction: column;
+  li {
+    list-style: none;
 
- li {
-  flex: 1;
-  display: flex;
-  list-style: none;
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
 
-  &:not(:last-child) {
-   border-bottom: 1px solid #eee;
+    flex-direction: row;
+    padding: 16px 0;
+    margin: 0 16px;
+
+   &.products-list__product {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+
+     .product__picture {
+      margin-right: 16px;
+     }
+
+      .product__informations {
+        flex-wrap: wrap;
+        display: flex;
+
+        .product__price {
+          // margin-bottom: 32px;
+          min-width: 622px;
+        }
+
+        .product__location {
+          margin-top: 16px;
+          min-width: 93px;
+          text-align: center;
+        }
+
+        .product__name {
+          max-width: 410px;
+        }
+      }
+    }
   }
-
-  flex-direction: row;
-  padding: 16px 0;
-  margin: 0 16px;
-
-  .products-list__product {
-   display: flex;
-   flex-direction: row;
-   flex: 1;
-  }
- }
 }
