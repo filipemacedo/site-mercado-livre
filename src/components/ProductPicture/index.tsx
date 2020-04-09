@@ -9,11 +9,9 @@ interface Props {
 }
 
 const ProductPicture: React.FC<Props> = ({ src, alt, large = false }) => (
-  <img
-    alt={alt}
-    className={`product__picture ${large ? 'product__picture--large' : ''}`}
-    src={src}
-  />
+  <div className={`product__picture ${large ? 'product__picture--large' : ''}`}>
+    <img alt={alt} src={src} />
+  </div>
 );
 
 export default ProductPicture;
