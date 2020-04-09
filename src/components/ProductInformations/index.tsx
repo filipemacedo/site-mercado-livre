@@ -21,6 +21,7 @@ const ProductInformations: React.FC<Props> = ({
   name,
   condition,
   sales,
+  children,
   hideLocation = false,
   size = 'default',
 }) => (
@@ -37,6 +38,7 @@ const ProductInformations: React.FC<Props> = ({
     />
     {!hideLocation && <p className="product__location">Canada</p>}
     <h1 className="product__name">{name}</h1>
+    {children}
   </div>
 );
 
