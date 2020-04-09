@@ -8,4 +8,36 @@
     font-size: 18px;
     font-weight: 400;
   }
+
+  span.product-informations__sales {
+    color: #666;
+    font-size: 14px;
+  }
+
+  &.product__informations--medium {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      order: 2;
+      color: #333;
+      font-size: 24px;
+      margin-top: 16px;
+      font-weight: bold;
+    }
+
+    .product__price {
+      order: 3;
+      margin-top: 32px;
+
+      span {
+        font-size: 46px;
+      }
+
+      .price__symbol {
+        margin-right: 5px;
+      }
+    }
+  }
 }

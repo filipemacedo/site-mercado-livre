@@ -6,6 +6,10 @@ import './product-informations.styles.scss';
 interface ProductInformationsProps {
   className?: string;
   name: string;
+  condition?: string;
+  hideLocation?: boolean;
+  sales?: number;
+  size?: 'default' | 'medium';
 }
 
 type Props = ProductPriceProps & ProductInformationsProps;
@@ -15,14 +19,23 @@ const ProductInformations: React.FC<Props> = ({
   symbolCurrency,
   hideShippingIcon,
   name,
+  condition,
+  sales,
+  hideLocation = false,
+  size = 'default',
 }) => (
-  <div className="product__informations">
+  <div className={`product__informations product__informations--${size}`}>
+    {condition && sales && (
+      <span className="product-informations__sales">
+        {condition} - {sales} vendidos
+      </span>
+    )}
     <ProductPrice
       hideShippingIcon={hideShippingIcon}
       symbolCurrency={symbolCurrency}
       value={value}
     />
-    <p className="product__location">Canada</p>
+    {!hideLocation && <p className="product__location">Canada</p>}
     <h1 className="product__name">{name}</h1>
   </div>
 );
