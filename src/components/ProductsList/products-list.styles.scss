@@ -1,4 +1,7 @@
 ol.products-list {
+  margin: 0 16px;
+  flex: 1;
+
   li {
     list-style: none;
 
@@ -8,7 +11,6 @@ ol.products-list {
 
     flex-direction: row;
     padding: 16px 0;
-    margin: 0 16px;
 
     &.products-list__product {
       display: flex;
