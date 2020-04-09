@@ -7,6 +7,9 @@
   &.product__picture--large {
     max-height: 680px;
     max-width: 680px;
-    flex: 2;
+
+    img {
+      margin: 0 auto;
+    }
   }
 }
