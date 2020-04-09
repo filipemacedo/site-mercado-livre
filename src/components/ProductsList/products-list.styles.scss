@@ -10,27 +10,32 @@ ol.products-list {
     padding: 16px 0;
     margin: 0 16px;
 
-   &.products-list__product {
+    &.products-list__product {
       display: flex;
       flex-direction: row;
       flex: 1;
 
-     .product__picture {
-      margin-right: 16px;
-     }
+      .product__picture {
+        margin-right: 16px;
+      }
 
       .product__informations {
         flex-wrap: wrap;
         display: flex;
 
-        .product__price {
-          // margin-bottom: 32px;
-          min-width: 622px;
-        }
+        .product__general-informations {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .product__price {
+            // margin-bottom: 32px;
+            min-width: 622px;
+          }
 
-        .product__location {
-          min-width: 93px;
-          text-align: center;
+          .product__location {
+            min-width: 93px;
+            text-align: center;
+          }
         }
 
         .product__name {
