@@ -1,7 +1,6 @@
-.product__informations__price {
+.product__price {
  display: flex;
  align-items: center;
- margin-bottom: 32px;
 
  .shipping_icon {
   margin-left: 10px;
@@ -10,7 +9,7 @@
  span {
   font-size: 24px;
 
-  &.product__informations__price__symbol {
+  &.product__price__symbol {
    margin-right: 5px;
   }
  }
