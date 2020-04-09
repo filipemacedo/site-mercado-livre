@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
+
 import React from 'react';
 import Header from '../../components/Header';
 import NavigationBreadcrumb from '../../components/NavigationBreadcrumb';
@@ -22,11 +23,11 @@ const Products: React.FC = () => {
             '32 GB',
           ]}
         />
-        <ContainerBox>
-          <section className="products">
+        <section className="products">
+          <ContainerBox>
             <ProductsList products={[]} />
-          </section>
-        </ContainerBox>
+          </ContainerBox>
+        </section>
       </main>
     </>
   );
