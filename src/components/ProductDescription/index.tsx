@@ -7,7 +7,7 @@ export interface ProductDescriptionProps {
 }
 
 const ProductDescription: React.FC<ProductDescriptionProps> = ({ description }) => (
-  <div className="product__informations__description">
+  <div className="product__description">
     <p>{description}</p>
   </div>
 );
