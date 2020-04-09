@@ -17,7 +17,7 @@ const ProductsList: React.FC<Props> = () => {
         <ProductInformations
           hideShippingIcon={false}
           name="Egeo Desodorante Colônia Dolce 90ml"
-          value="1998"
+          value={1998}
         />
       </li>
       <li className="products-list__product">
@@ -25,7 +25,7 @@ const ProductsList: React.FC<Props> = () => {
         <ProductInformations
           hideShippingIcon={false}
           name="Egeo Desodorante Colônia Dolce 90ml"
-          value="1998"
+          value={1998}
         />
       </li>
       <li className="products-list__product">
@@ -33,7 +33,7 @@ const ProductsList: React.FC<Props> = () => {
         <ProductInformations
           hideShippingIcon={false}
           name="Egeo Desodorante Colônia Dolce 90ml"
-          value="1998"
+          value={1998}
         />
       </li>
       <li className="products-list__product">
@@ -41,7 +41,7 @@ const ProductsList: React.FC<Props> = () => {
         <ProductInformations
           hideShippingIcon={false}
           name="Egeo Desodorante Colônia Dolce 90ml"
-          value="1998"
+          value={1998}
         />
       </li>
       <li className="products-list__product">
@@ -49,7 +49,7 @@ const ProductsList: React.FC<Props> = () => {
         <ProductInformations
           hideShippingIcon={false}
           name="Egeo Desodorante Colônia Dolce 90ml"
-          value="1998"
+          value={1998}
         />
       </li>
     </ol>
