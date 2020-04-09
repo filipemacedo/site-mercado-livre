@@ -3,7 +3,7 @@ import ProductPrice, { ProductPriceProps } from '../ProductPrice';
 
 import './product-informations.styles.scss';
 
-interface ProductInformationsProps {
+interface Props {
   className?: string;
   name: string;
   condition?: string;
@@ -12,9 +12,9 @@ interface ProductInformationsProps {
   size?: 'default' | 'medium';
 }
 
-type Props = ProductPriceProps & ProductInformationsProps;
+export type ProductInformationsProps = ProductPriceProps & Props;
 
-const ProductInformations: React.FC<Props> = ({
+const ProductInformations: React.FC<ProductInformationsProps> = ({
   value,
   symbolCurrency,
   hideShippingIcon,
