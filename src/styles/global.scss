@@ -1,7 +1,4 @@
-$spacing-levels: '5'5px,
-'10'10px,
-'16'16px,
-'32'32px;
+$spacing-levels: '5' 5px, '10' 10px, '16' 16px, '32' 32px;
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -82,7 +79,15 @@ body {
   max-width: 1037.33px;
   margin: 0 auto;
   flex: 1;
- }
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  background: white;
+  border-radius: 5px 5px 0 0;
+  min-height: 100px;
+}
 
 .shipping-icon {
   height: 15px;
