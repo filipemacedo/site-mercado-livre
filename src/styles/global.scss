@@ -1,4 +1,7 @@
-$spacing-levels: '16' 16px, '32' 32px;
+$spacing-levels: '5'5px,
+'10'10px,
+'16'16px,
+'32'32px;
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
