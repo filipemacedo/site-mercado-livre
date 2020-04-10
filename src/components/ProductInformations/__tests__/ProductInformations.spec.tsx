@@ -63,4 +63,20 @@ describe('ProductInformations Component', () => {
 			value: product.value
 		});
 	});
+
+	it('should ProductInformations render ProductPrice with custom props', () => {
+		const app = mount(<ProductInformations {...product} hideShippingIcon symbolCurrency="$" />);
+
+		const productPrice = app.find('ProductPrice');
+
+		expect(productPrice).toBeDefined();
+
+		const productPriceProps = productPrice.props();
+
+		expect(productPriceProps).toEqual({
+			hideShippingIcon: true,
+			symbolCurrency: '$',
+			value: product.value
+		});
+	});
 });
