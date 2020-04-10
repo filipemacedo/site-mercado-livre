@@ -11,13 +11,13 @@ export interface ProductPriceProps {
 }
 
 const ProductPrice: React.FC<ProductPriceProps> = ({
-  symbolCurrency,
   value,
+  symbolCurrency = "R$",
   hideShippingIcon = false,
 }) => (
   <div className="product__price">
     <span className="price__symbol margin-right--5">
-      {symbolCurrency || 'R$'}
+      {symbolCurrency}
     </span>
     <span className="price__value">{value}</span>
 
