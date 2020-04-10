@@ -23,6 +23,7 @@ const ProductPrice: React.FC<ProductPriceProps> = ({
 
     {!hideShippingIcon && (
       <img
+        alt="Frete disponível"
         className="shipping-icon"
         src={ShippingIcon}
       />
