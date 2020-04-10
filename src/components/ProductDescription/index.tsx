@@ -13,7 +13,7 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({
 }) => (
   <div className="product__description">
     <h2>{title}</h2>
-    <p>{description}</p>
+    <p className="margin-top--32">{description}</p>
   </div>
 );
 

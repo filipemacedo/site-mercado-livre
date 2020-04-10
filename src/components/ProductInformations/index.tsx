@@ -39,7 +39,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
       />
       {!hideLocation && <p className="product__location">Canada</p>}
     </div>
-    <h1 className="product__name">{name}</h1>
+    <h1 className="product__name margin-top--16">{name}</h1>
     {children}
   </section>
 );
