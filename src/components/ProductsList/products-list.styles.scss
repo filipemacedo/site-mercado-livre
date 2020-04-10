@@ -19,6 +19,7 @@ ol.products-list {
 
       .product__picture {
         margin-right: 16px;
+        cursor: pointer;
       }
 
       .product__informations {
@@ -29,6 +30,7 @@ ol.products-list {
           display: flex;
           flex-direction: row;
           align-items: center;
+          
           .product__price {
             // margin-bottom: 32px;
             min-width: 622px;
