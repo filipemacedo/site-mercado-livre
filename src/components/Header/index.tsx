@@ -4,12 +4,16 @@ import Logo from '../Logo';
 
 import "./header.styles.scss"
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onSearchSubmit(query: string): void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onSearchSubmit }) => {
   return (
     <header className="nav-header">
       <div className="container">
         <Logo />
-        <ProductsSearch />
+        <ProductsSearch onSubmit={onSearchSubmit} />
       </div>
     </header>
   );
