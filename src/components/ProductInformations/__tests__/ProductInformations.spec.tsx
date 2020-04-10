@@ -47,16 +47,23 @@ describe('ProductInformations Component', () => {
     ).toHaveLength(0);
   });
 
-  
   it('should render ProductInformations without sales information when not have sales param', () => {
-   const modifiedProduct = { ...product, sales: undefined };
+    const modifiedProduct = { ...product, sales: undefined };
 
-   const app = mount(
-     <ProductInformations {...modifiedProduct} hideLocation />,
-   );
+    const app = mount(
+      <ProductInformations {...modifiedProduct} hideLocation />,
+    );
 
-   expect(
-     app.find('.product__informations .product-informations__sales'),
-   ).toHaveLength(0);
- });
+    expect(
+      app.find('.product__informations .product-informations__sales'),
+    ).toHaveLength(0);
+  });
+
+  it('should render ProductInformations without location', () => {
+    const app = mount(<ProductInformations {...product} hideLocation />);
+
+    expect(
+      app.find('.product__general-informations .product__location'),
+    ).toHaveLength(0);
+  });
 });
