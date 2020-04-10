@@ -6,7 +6,7 @@ import './products-search.styles.scss';
 const ProductsSearch: React.FC = () => {
   return (
     <form className="products-search">
-      <input placeholder="Nunca dejes de buscar" type="search" />
+      <input placeholder="Nunca dejes de buscar" />
       <button type="submit">
         <img src={SearchIcon} />
       </button>
