@@ -34,4 +34,16 @@ describe('ProductInformations Component', () => {
         .includes(`${product.condition} - ${product.sales}`),
     ).toBe(true);
   });
+
+  it('should render ProductInformations without sales information when not have condition param', () => {
+    const modifiedProduct = { ...product, condition: undefined };
+
+    const app = mount(
+      <ProductInformations {...modifiedProduct} hideLocation />,
+    );
+
+    expect(
+      app.find('.product__informations .product-informations__sales'),
+    ).toHaveLength(0);
+  });
 });
