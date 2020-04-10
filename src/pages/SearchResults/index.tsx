@@ -5,24 +5,22 @@ import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 
 import './search-results.styles.scss';
+import { ItemsState } from '../../store/modules/items/items.types';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../store';
 
 const Products: React.FC = () => {
-  return (
-    <DefaultLayout
-      categories={[
-        'Eletrônica, Áudio e Vídeo',
-        'iPod',
-        'Reproductores',
-        'iPod Touch',
-        '32 GB',
-      ]}>
-      <section className="products">
-        <ContainerBox>
-          <ProductsList products={[]} />
-        </ContainerBox>
-      </section>
-    </DefaultLayout>
-  );
+	const { items, categories }: ItemsState = useSelector((state: ApplicationState) => state.items);
+
+	return (
+		<DefaultLayout categories={categories}>
+			<section className="products">
+				<ContainerBox>
+					<ProductsList products={items} />
+				</ContainerBox>
+			</section>
+		</DefaultLayout>
+	);
 };
 
 export default Products;

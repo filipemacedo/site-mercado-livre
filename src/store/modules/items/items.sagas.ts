@@ -7,11 +7,11 @@ import { SearchResults, ItemsSagaEffect } from './items.types';
 export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 	try {
 		yield put(searchItemsLoading());
+		yield put(push(`/items?search=${payload.query}`));
 
 		const searchResults: SearchResults = yield call(searchItems, payload.query);
 
 		yield put(searchItemsSuccess(searchResults));
-		yield put(push(`/items?search=${payload.query}`));
 	} catch (error) {
 		yield put(searchItemsFailed());
 

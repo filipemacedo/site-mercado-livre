@@ -15,7 +15,7 @@ export interface ItemsInterface {
 	title: string;
 	picture: string;
 	condition: string;
-	free_shiping: boolean;
+	free_shipping: boolean;
 	price: {
 		currency: string;
 		amount: number;

@@ -4,64 +4,29 @@ import ProductInformations from '../ProductInformations';
 import MacbookImage from '../../assets/images/macbook.webp';
 
 import './products-list.styles.scss';
+import { ItemsInterface } from '../../store/modules/items/items.types';
 
 interface Props {
-  products: any[];
+	products: ItemsInterface[];
 }
 
-const ProductsList: React.FC<Props> = () => {
-  return (
-    <ol className="products-list">
-      <li className="products-list__product">
-        <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
-        <ProductInformations
-          hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml 
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          Egeo Desodorante Colônia Dolce 90ml
-          "
-          value={1998}
-        />
-      </li>
-      <li className="products-list__product">
-        <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
-        <ProductInformations
-          hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml"
-          value={1998}
-        />
-      </li>
-      <li className="products-list__product">
-        <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
-        <ProductInformations
-          hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml"
-          value={1998}
-        />
-      </li>
-      <li className="products-list__product">
-        <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
-        <ProductInformations
-          hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml"
-          value={1998}
-        />
-      </li>
-      <li className="products-list__product">
-        <ProductPicture alt="Um macbook novo!" src={MacbookImage} />
-        <ProductInformations
-          hideShippingIcon={false}
-          name="Egeo Desodorante Colônia Dolce 90ml"
-          value={1998}
-        />
-      </li>
-    </ol>
-  );
+const ProductsList: React.FC<Props> = ({ products }) => {
+	return (
+		<ol className="products-list">
+			{products.map((product) => (
+				<li className="products-list__product" key={product.id}>
+					<ProductPicture alt={product.title} src={product.picture} />
+					<ProductInformations
+            condition={product.condition}
+            hideShippingIcon={!product.free_shipping}
+						name={product.title}
+						symbolCurrency={product.price?.currency}
+						value={product?.price?.amount.toFixed(product.price.decimals)}
+					/>
+				</li>
+			))}
+		</ol>
+	);
 };
 
 export default React.memo(ProductsList);

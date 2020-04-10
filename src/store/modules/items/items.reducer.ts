@@ -1,5 +1,5 @@
 import { Reducer } from 'react';
-import { ItemsState, ItemsReducerAction } from './items.types';
+import { ItemsState, ItemsReducerAction, ItemsTypeActions } from './items.types';
 
 const itemsInitialState: ItemsState = {
 	loading: false,
@@ -14,6 +14,30 @@ const itemsInitialState: ItemsState = {
 
 const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialState, action) => {
 	switch (action.type) {
+		case ItemsTypeActions.SEARCH_ITEMS_SUCCESS:
+			const { searchResults } = action.payload;
+
+			return {
+				...state,
+				categories: searchResults.categories,
+				author: searchResults.author,
+				items: searchResults.items.slice(0, 4)
+			};
+
+		case ItemsTypeActions.SEARCH_ITEMS_LOADING:
+			return {
+				...state,
+				error: false,
+				loading: true
+			};
+
+		case ItemsTypeActions.SEARCH_ITEMS_FAILED:
+			return {
+				...state,
+				loading: false,
+				error: true
+			};
+
 		default:
 			return state;
 	}

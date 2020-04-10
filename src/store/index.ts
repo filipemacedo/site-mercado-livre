@@ -6,12 +6,17 @@ import history from '../routes/history';
 import rootSaga from './modules/rootSaga';
 import createStore from './createStore';
 import rootReducer from './modules/rootReducer';
+import { ItemsState } from './modules/items/items.types';
+
+export interface ApplicationState {
+	items: ItemsState;
+}
 
 const sagaMiddlewares: SagaMiddleware<object> = createSagaMiddleware();
 
 const middlewares = [ sagaMiddlewares, routerMiddleware(history) ];
 
-const store: Store<any> = createStore(rootReducer(history), middlewares);
+const store: Store<ApplicationState> = createStore(rootReducer(history), middlewares);
 
 sagaMiddlewares.run(rootSaga);
 
