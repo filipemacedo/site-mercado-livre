@@ -16,8 +16,6 @@ describe('DesiredProduct Component', () => {
 
 		const app = mount(<DesiredProduct {...productInformations} />);
 
-		// console.log(app.debug())
-
 		expect(app.find('.desired-product.margin--32')).toHaveLength(1);
 
 		const productPictureComponentProps = app.find('ProductPicture').props();
@@ -49,8 +47,6 @@ describe('DesiredProduct Component', () => {
 
 		const app = mount(<DesiredProduct {...productInformations} />);
 
-		// console.log(app.debug())
-
 		expect(app.find('.desired-product.margin--32')).toHaveLength(1);
 
 		const productInformationsComponentProps: any = app.find('ProductInformations').props();
@@ -59,5 +55,45 @@ describe('DesiredProduct Component', () => {
 		expect(productInformationsComponentProps.hideLocation).toBe(true);
 		expect(productInformationsComponentProps.hideShippingIcon).toBe(true);
 		expect(productInformationsComponentProps.size).toBe("medium");
+	});
+
+	it('should render DesiredProduct with informations and large picture', () => {
+		const productInformations = {
+			condition: 'Nuevo',
+			name: faker.name.firstName(),
+			sales: faker.random.number(1000),
+			value: faker.random.number(1000),
+			description: faker.lorem.paragraph(),
+			onPurchaseClick: () => ({})
+		};
+
+		const app = mount(<DesiredProduct {...productInformations} />);
+
+		expect(app.find('.desired-product.margin--32')).toHaveLength(1);
+
+		const productPictureComponentProps: any = app.find('ProductPicture').props();
+
+		expect(productPictureComponentProps).toBeDefined();
+		expect(productPictureComponentProps.large).toBe(true);
+	});
+
+	it('should render DesiredProduct with informations and description ', () => {
+		const productInformations = {
+			condition: 'Nuevo',
+			name: faker.name.firstName(),
+			sales: faker.random.number(1000),
+			value: faker.random.number(1000),
+			description: faker.lorem.paragraph(),
+			onPurchaseClick: () => ({})
+		};
+
+		const app = mount(<DesiredProduct {...productInformations} />);
+
+		expect(app.find('.desired-product.margin--32')).toHaveLength(1);
+
+		const productDescriptionComponentProps: any = app.find('ProductDescription').props();
+
+		expect(productDescriptionComponentProps).toBeDefined();
+		expect(productDescriptionComponentProps.description).toBe(productInformations.description);
 	});
 });
