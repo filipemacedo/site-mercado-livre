@@ -22,5 +22,14 @@ describe('BreadcrumbList Component', () => {
     );
   });
 
-  
+  it('should render breadcrumb list component with categories and define last element as active', () => {
+    const app = mount(
+      <BreadcrumbList categories={['Categoria', 'Ultimo elemento']} />,
+    );
+
+    expect(app.find('.navigation-breadcrumb__list li')).toHaveLength(2);
+    expect(
+      app.find('.navigation-breadcrumb__list li').last().prop('className'),
+    ).toBe("navigation-breadcrumb__list__element--active");
+  });
 });
