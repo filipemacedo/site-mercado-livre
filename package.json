@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.5",
     "@types/history": "^4.7.5",
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.32",
@@ -50,10 +51,14 @@
     "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/parser": "^2.27.0",
     "cross-env": "^7.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "faker": "^4.1.0",
     "git-commit-msg-linter": "^2.4.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
