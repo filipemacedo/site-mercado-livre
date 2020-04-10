@@ -44,3 +44,10 @@ export interface ItemsReducerAction {
 		searchResults: SearchResults;
 	};
 }
+
+export interface ItemsSagaEffect {
+	type: string;
+	payload: {
+		query: string;
+	};
+}
