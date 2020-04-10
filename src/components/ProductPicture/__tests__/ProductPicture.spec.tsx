@@ -17,4 +17,18 @@ describe('ProductPicture Component', () => {
 		expect(app.find('.product__picture img')).toHaveLength(1);
 		expect(app.find('.product__picture img').props()).toEqual(picture);
  });
+
+ it('should render ProductPicture with large size', () => {
+		const picture = {
+			src: faker.internet.avatar(),
+			alt: faker.lorem.paragraph()
+		};
+
+		const app = mount(<ProductPicture {...picture} large />);
+
+		expect(app.find('.product__picture')).toHaveLength(1);
+		expect(app.find('.product__picture.product__picture--large')).toHaveLength(1);
+		expect(app.find('.product__picture img')).toHaveLength(1);
+		expect(app.find('.product__picture img').props()).toEqual(picture);
+ });
 });
