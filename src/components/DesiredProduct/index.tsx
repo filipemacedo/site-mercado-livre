@@ -6,7 +6,7 @@ import ProductInformations from '../ProductInformations';
 
 import './desired-product.styles.scss';
 
-interface DesiredProductProps {
+export interface DesiredProductProps {
   onPurchaseClick(): void;
   condition: string;
   name: string;
