@@ -12,5 +12,13 @@ describe('ProductPrice Component', () => {
 		expect(app.find('.price__value')).toHaveLength(1);
 		expect(app.find('.price__value').text()).toEqual("100");
 		expect(app.find('img.shipping-icon.margin-left--10')).toHaveLength(1);
+ });
+ 
+ it('should render ProductPrice with custom props', () => {
+		const app = mount(<ProductPrice value={100} symbolCurrency="$" />);
+
+		expect(app.find('.price__symbol.margin-right--5').text()).toBe('$');
+		expect(app.find('.price__value')).toHaveLength(1);
+		expect(app.find('.price__value').text()).toEqual("100");
 	});
 });
