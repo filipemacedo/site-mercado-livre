@@ -19,6 +19,8 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 
 			return {
 				...state,
+				loading: false,
+				error: false,
 				categories: searchResults.categories,
 				author: searchResults.author,
 				items: searchResults.items.slice(0, 4)

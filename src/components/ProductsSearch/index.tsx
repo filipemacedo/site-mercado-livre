@@ -8,17 +8,17 @@ interface ProductsSearchProps {
 }
 
 const ProductsSearch: React.FC<ProductsSearchProps> = ({ onSubmit }) => {
-	const [ searchText, setSearchText ] = useState<string>('');
+	const [ search, setSearch ] = useState<string>("");
 
 	return (
 		<form
 			className="products-search"
 			onSubmit={(e) => {
 				e.preventDefault();
-				onSubmit(searchText);
+				onSubmit(search);
 			}}
 		>
-			<input onChange={({ target }) => setSearchText(target.value)} placeholder="Nunca dejes de buscar" />
+			<input onChange={({ target }) => setSearch(target.value)} placeholder="Nunca dejes de buscar" />
 			<button type="submit">
 				<img src={SearchIcon} />
 			</button>

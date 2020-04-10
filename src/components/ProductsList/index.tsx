@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductPicture from '../ProductPicture';
 import ProductInformations from '../ProductInformations';
-import MacbookImage from '../../assets/images/macbook.webp';
 
 import './products-list.styles.scss';
 import { ItemsInterface } from '../../store/modules/items/items.types';

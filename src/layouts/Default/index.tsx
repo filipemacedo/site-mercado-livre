@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import NavigationBreadcrumb from '../../components/NavigationBreadcrumb';
 import { useDispatch } from 'react-redux';
-import { searchItems } from '../../store/modules/items/items.actions';
+import { push } from 'connected-react-router';
 
 interface DefaultLayoutProps {
   categories: string[];
@@ -15,8 +15,8 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   const dispatch = useDispatch();
 
   function onSearchSubmit(query: string) {
-    dispatch(searchItems(query))
-  }
+		dispatch(push(`/items?search=${query}`));
+	}
 
   return (
     <>
