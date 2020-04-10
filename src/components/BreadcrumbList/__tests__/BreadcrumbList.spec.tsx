@@ -10,7 +10,6 @@ describe('BreadcrumbList Component', () => {
     expect(app.find('.navigation-breadcrumb__list li')).toHaveLength(0);
   });
 
-  
   it('should render breadcrumb list component with categories', () => {
     const app = mount(<BreadcrumbList categories={['Categoria']} />);
 
@@ -30,6 +29,6 @@ describe('BreadcrumbList Component', () => {
     expect(app.find('.navigation-breadcrumb__list li')).toHaveLength(2);
     expect(
       app.find('.navigation-breadcrumb__list li').last().prop('className'),
-    ).toBe("navigation-breadcrumb__list__element--active");
+    ).toBe('navigation-breadcrumb__list__element--active');
   });
 });
