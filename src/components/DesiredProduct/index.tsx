@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductPicture from '../ProductPicture';
-import Button from '../Button';
 import ProductDescription from '../ProductDescription';
 import MacbookImage from '../../assets/images/macbook.webp';
 import ProductInformations from '../ProductInformations';
@@ -24,7 +23,7 @@ const DesiredProduct: React.FC<DesiredProductProps> = ({
   value,
   description,
 }) => (
-  <div className="desired-product">
+  <div className="desired-product margin--32">
     <ProductPicture alt="" large src={MacbookImage} />
     <ProductInformations
       condition={condition}
@@ -34,7 +33,12 @@ const DesiredProduct: React.FC<DesiredProductProps> = ({
       sales={sales}
       size="medium"
       value={value}>
-      <Button onClick={onPurchaseClick} text="Comprar" />
+      <button
+        className="btn btn--rounded btn--full bg--blue color--white border--none margin-top--32"
+        onClick={onPurchaseClick}
+        type="button">
+        Comprar
+      </button>
     </ProductInformations>
     <ProductDescription
       description={description}

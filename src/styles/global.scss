@@ -1,5 +1,4 @@
-$spacing-levels: "16"16px,
-"32"32px;
+$spacing-levels: '16' 16px, '32' 32px;
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -78,4 +77,26 @@ body {
 .shipping-icon {
   height: 15px;
   width: 15px;
+}
+
+.bg--blue {
+  background: #3483fa;
+}
+
+.color--white {
+  color: white;
+}
+
+.border--none {
+  border: none;
+}
+
+.btn {
+  &.btn--rounded {
+    border-radius: 5px;
+  }
+
+  &.btn--full {
+    width: 100%;
+  }
 }
