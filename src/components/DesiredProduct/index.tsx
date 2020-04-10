@@ -3,9 +3,9 @@ import ProductPicture from '../ProductPicture';
 import Button from '../Button';
 import ProductDescription from '../ProductDescription';
 import MacbookImage from '../../assets/images/macbook.webp';
+import ProductInformations from '../ProductInformations';
 
 import './desired-product.styles.scss';
-import ProductInformations from '../ProductInformations';
 
 interface DesiredProductProps {
   onPurchaseClick(): void;
