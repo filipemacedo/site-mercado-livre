@@ -12,3 +12,5 @@ export const findItemSuccess = (itemResult: ItemInterface) =>
 	action(ItemsTypeActions.FIND_ITEM_SUCCESS, { itemResult });
 export const findItemFailed = () => action(ItemsTypeActions.FIND_ITEM_FAILED);
 export const findItemLoading = () => action(ItemsTypeActions.FIND_ITEM_LOADING);
+
+export const defineSearchQuery = (query: string) => action(ItemsTypeActions.DEFINE_SEARCH_QUERY, { query });

@@ -5,16 +5,20 @@ import {
 	searchItemsSuccess,
 	findItemLoading,
 	findItemSuccess,
-	findItemFailed
+	findItemFailed,
+	defineSearchQuery
 } from './items.actions';
 import { searchItems, findItem } from '../../../services/api';
 import { SearchResults, ItemsSagaEffect, ItemInterface } from './items.types';
 
 export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 	try {
+		const { query } = payload;
+
+		yield put(defineSearchQuery(query));
 		yield put(searchItemsLoading());
 
-		const searchResults: SearchResults = yield call(searchItems, payload.query);
+		const searchResults: SearchResults = yield call(searchItems, query);
 
 		yield put(searchItemsSuccess(searchResults));
 	} catch (error) {

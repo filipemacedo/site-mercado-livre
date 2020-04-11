@@ -24,7 +24,7 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
     const { id } = match.params;
 
     dispatch(findItem(id));
-  }, [match]);
+  }, [match, dispatch]);
 
   return (
     <DefaultLayout>

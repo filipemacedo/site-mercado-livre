@@ -7,7 +7,9 @@ export enum ItemsTypeActions {
 	'FIND_ITEM' = '@items/FIND_ITEM',
 	'FIND_ITEM_LOADING' = '@item/FIND_ITEM_LOADING',
 	'FIND_ITEM_FAILED' = '@item/FIND_ITEM_FAILED',
-	'FIND_ITEM_SUCCESS' = '@item/FIND_ITEM_SUCCESS'
+	'FIND_ITEM_SUCCESS' = '@item/FIND_ITEM_SUCCESS',
+
+	'DEFINE_SEARCH_QUERY' = '@items/DEFINE_SEARCH_QUERY'
 }
 
 export interface AuthorInterface {
@@ -44,6 +46,7 @@ export interface ItemsState extends SearchResults {
 	loading: boolean;
 	error: boolean;
 	selectedItem?: ItemInterface;
+	searchQuery: string;
 }
 
 export interface ItemsReducerAction {
@@ -51,6 +54,7 @@ export interface ItemsReducerAction {
 	payload: {
 		searchResults: SearchResults;
 		itemResult: ItemInterface;
+		query: string;
 	};
 }
 

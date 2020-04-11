@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './breadcrumb-list.styles.scss';
+import { Link } from 'react-router-dom';
 
 interface Props {
   categories: string[];
@@ -20,8 +21,8 @@ const BreadcrumbList: React.FC<Props> = ({ categories }) => {
               ? 'navigation-breadcrumb__list__element--active'
               : ''
           }
-          key={element}>
-          <a>{element}</a>
+          key={element.replace(' ', '')}>
+          <Link to={`/items?search=${element}`}>{element}</Link>
         </li>
       ))}
     </ul>

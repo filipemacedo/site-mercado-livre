@@ -5,9 +5,13 @@ import './products-search.styles.scss';
 
 interface ProductsSearchProps {
   onSubmit(query: string): void;
+  searchText?: string;
 }
 
-const ProductsSearch: React.FC<ProductsSearchProps> = ({ onSubmit }) => {
+const ProductsSearch: React.FC<ProductsSearchProps> = ({
+  onSubmit,
+  searchText = '',
+}) => {
   const [search, setSearch] = useState<string>('');
 
   return (
@@ -20,9 +24,10 @@ const ProductsSearch: React.FC<ProductsSearchProps> = ({ onSubmit }) => {
       <input
         onChange={({ target }) => setSearch(target.value)}
         placeholder="Nunca dejes de buscar"
+        value={search.length ? search : searchText}
       />
       <button type="submit">
-        <img src={SearchIcon} />
+        <img alt="Search items" src={SearchIcon} />
       </button>
     </form>
   );

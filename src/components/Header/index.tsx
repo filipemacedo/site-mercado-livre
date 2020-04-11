@@ -6,14 +6,15 @@ import "./header.styles.scss"
 
 interface HeaderProps {
   onSearchSubmit(query: string): void;
+  searchText: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ onSearchSubmit }) => {
+const Header: React.FC<HeaderProps> = ({ onSearchSubmit, searchText }) => {
   return (
     <header className="nav-header">
       <div className="container">
         <Logo />
-        <ProductsSearch onSubmit={onSearchSubmit} />
+        <ProductsSearch onSubmit={onSearchSubmit} searchText={searchText} />
       </div>
     </header>
   );
