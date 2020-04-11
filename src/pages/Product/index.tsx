@@ -6,7 +6,10 @@ import DesiredProduct from '../../components/DesiredProduct';
 import './product.styles.scss';
 import { RouteComponentProps } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { findItem } from '../../store/modules/items/items.actions';
+import {
+  findItem,
+  resetFindItem,
+} from '../../store/modules/items/items.actions';
 import { ApplicationState } from '../../store';
 import numberFormatCurrency from '../../utils/number-format-currency';
 
@@ -24,6 +27,10 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
     const { id } = match.params;
 
     dispatch(findItem(id));
+
+    return () => {
+      dispatch(resetFindItem());
+    };
   }, [match, dispatch]);
 
   return (
