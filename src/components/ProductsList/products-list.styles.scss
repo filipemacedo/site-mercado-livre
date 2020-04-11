@@ -17,13 +17,15 @@ ol.products-list {
 
 @media (max-width: 767px) and (min-width: 320px) {
   .products-list__product a {
-    @include flex-column--center();
+    @include flex-row--center();
 
     .product__picture {
-      margin-right: unset;
+      margin-right: 16px;
     }
 
     .product__informations {
+      flex: 1;
+
       .product__general-informations {
         @include flex-column--center();
 
@@ -55,12 +57,13 @@ ol.products-list {
 
     .product__informations {
       flex: 1;
+      text-align: initial;
 
       .product__general-informations {
         @include flex-row--center();
 
         .product__price {
-          min-width: unset !important;
+          min-width: initial;
           flex: 1;
         }
 
