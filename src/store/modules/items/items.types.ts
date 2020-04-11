@@ -22,6 +22,7 @@ export interface ItemsInterface {
 	condition: string;
 	free_shipping: boolean;
 	price: {
+		symbol: string;
 		currency: string;
 		amount: number;
 		decimals: number;
