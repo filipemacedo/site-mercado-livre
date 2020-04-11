@@ -27,16 +27,19 @@
       font-weight: bold;
     }
 
-    .product__price {
+    .product__general-informations {
       order: 3;
-      margin-top: 32px;
 
-      span {
-        font-size: 46px;
-      }
+      .product__price {
+        margin-top: 32px;
 
-      .price__symbol {
-        margin-right: 5px;
+        span {
+          font-size: 46px;
+        }
+
+        .price__symbol {
+          margin-right: 5px;
+        }
       }
     }
   }
