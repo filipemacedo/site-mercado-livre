@@ -28,7 +28,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
   size = 'default',
 }) => {
   function verifyIfInformationsSalesIsVisible() {
-    if (sales === undefined && !condition) return false;
+    if (sales === undefined || !condition) return false;
 
     return true;
   }

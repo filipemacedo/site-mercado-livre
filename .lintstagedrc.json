@@ -1,10 +1,10 @@
 {
  "*.ts": [
-  "eslint 'src/**' --fix --max-warnings=1",
+  "eslint 'src/**' --fix --max-warnings=3",
   "git add"
  ],
  "*.tsx": [
-  "eslint 'src/**' --fix --max-warnings=1",
+  "eslint 'src/**' --fix --max-warnings=3",
   "git add"
  ]
 }
