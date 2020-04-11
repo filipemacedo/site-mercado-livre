@@ -18,8 +18,20 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 		case ItemsTypeActions.RESET_SEARCH_QUERY:
 			return {
 				...state,
-				searchQuery: ""
-			}
+				searchQuery: ''
+			};
+
+		case ItemsTypeActions.RESET_SEARCH_ITEMS:
+			return {
+				...state,
+				items: []
+			};
+
+		case ItemsTypeActions.RESET_FIND_ITEM:
+			return {
+				...state,
+				selectedItem: undefined
+			};
 
 		case ItemsTypeActions.DEFINE_SEARCH_QUERY:
 			return {
