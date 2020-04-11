@@ -13,6 +13,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import {
   searchItems,
   resetSearchItems,
+		resetSearchQuery,
 } from '../../store/modules/items/items.actions';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
@@ -30,7 +31,8 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     dispatch(searchItems(search));
 
     return () => {
-      dispatch(resetSearchItems());
+						dispatch(resetSearchItems());
+						dispatch(resetSearchQuery());
     };
   }, [location]);
 
