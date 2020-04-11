@@ -9,6 +9,7 @@ interface Props {
   condition?: string;
   hideLocation?: boolean;
   sales?: number;
+  address?: string;
   size?: 'default' | 'medium';
 }
 
@@ -22,6 +23,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
   condition,
   sales,
   children,
+  address,
   hideLocation = false,
   size = 'default',
 }) => {
@@ -44,7 +46,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
           symbolCurrency={symbolCurrency}
           value={value}
         />
-        {!hideLocation && <p className="product__location">Canada</p>}
+        {!hideLocation && <p className="product__location">{address}</p>}
       </div>
       <h1 className="product__name margin-top--16">{name}</h1>
       {children}

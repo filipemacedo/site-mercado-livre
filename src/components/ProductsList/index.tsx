@@ -22,11 +22,13 @@ const ProductsList: React.FC<Props> = ({ products }) => {
           condition,
           free_shipping: freeShiping,
           price,
+          address,
         }) => (
           <li className="products-list__product" key={id}>
             <Link to={`/items/${id}`}>
               <ProductPicture alt={title} src={picture} />
               <ProductInformations
+                address={address}
                 condition={condition}
                 hideShippingIcon={!freeShiping}
                 name={title}

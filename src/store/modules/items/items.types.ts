@@ -22,6 +22,7 @@ export interface ItemsInterface {
 	title: string;
 	picture: string;
 	condition: string;
+	address: string;
 	free_shipping: boolean;
 	price: {
 		symbol: string;
