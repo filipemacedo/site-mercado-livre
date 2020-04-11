@@ -12,7 +12,7 @@ ol.products-list {
     flex-direction: row;
     padding: 16px 0;
 
-    &.products-list__product {
+    &.products-list__product a {
       display: flex;
       flex-direction: row;
       flex: 1;
