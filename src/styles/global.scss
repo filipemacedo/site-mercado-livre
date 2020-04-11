@@ -131,20 +131,12 @@ a {
       max-width: 100%;
       width: 100%;
     }
-
-    &.container-sm--hidden {
-      display: none;
-    }
   }
 }
 
 @media (max-width: 767px) and (min-width: 321px) {
   .container {
     max-width: 359px;
-
-    &.container-sm--hidden {
-      display: none;
-    }
   }
 }
 

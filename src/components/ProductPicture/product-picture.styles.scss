@@ -1,16 +1,17 @@
 @mixin fixedSize($value) {
-  // max-height: $value;
-  // max-width: $value;
+  max-height: $value;
+  max-width: $value;
   height: $value;
   width: $value;
 }
 
 .product__picture {
+  &,
   img {
-    min-width: 100%;
-    min-height: 100%;
-    height: auto;
-    width: auto;
+    @include fixedSize(180px);
+  }
+
+  img {
     border-radius: 4px;
     object-fit: cover;
   }
@@ -18,17 +19,26 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
   .product__picture {
-    @include fixedSize(130px);
+    &,
+    img {
+      @include fixedSize(130px);
+    }
   }
 
   .product__picture--large {
-    @include fixedSize(250px);
+    &,
+    img {
+      @include fixedSize(250px);
+    }
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .product__picture {
-    @include fixedSize(180px);
+    &,
+    img {
+      @include fixedSize(180px);
+    }
   }
 
   .product__picture--large {
@@ -45,10 +55,6 @@
 }
 
 @media (min-width: 1025px) {
-  .product__picture {
-    @include fixedSize(180px);
-  }
-
   .product__picture--large {
     &,
     img {

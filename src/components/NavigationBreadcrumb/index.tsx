@@ -10,7 +10,7 @@ interface Props {
 const NavigationBreadcrumb: React.FC<Props> = ({ categories }) => {
   return (
     <div
-      className={`container ${!categories.length ? 'container-sm--hidden' : ''}`}>
+      className="container">
       <div className="navigation-breadcrumb">
         <BreadcrumbList categories={categories} />
       </div>
