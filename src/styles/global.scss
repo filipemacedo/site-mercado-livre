@@ -131,6 +131,10 @@ a {
       max-width: 100%;
       width: 100%;
     }
+
+    &.container-sm--hidden {
+      display: none;
+    }
   }
 }
 
@@ -141,6 +145,10 @@ a {
     &.container-sm--full {
       max-width: 100%;
       width: 100%;
+    }
+
+    &.container-sm--hidden {
+      display: none;
     }
   }
 }
