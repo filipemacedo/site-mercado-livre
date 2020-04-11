@@ -26,7 +26,14 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 				items: searchResults.items.slice(0, 4)
 			};
 
+		case ItemsTypeActions.FIND_ITEM_SUCCESS:
+			return {
+				...state,
+				selectedItem: action.payload.itemResult
+			};
+
 		case ItemsTypeActions.SEARCH_ITEMS_LOADING:
+		case ItemsTypeActions.FIND_ITEM_LOADING:
 			return {
 				...state,
 				error: false,
@@ -34,6 +41,7 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 			};
 
 		case ItemsTypeActions.SEARCH_ITEMS_FAILED:
+		case ItemsTypeActions.FIND_ITEM_FAILED:
 			return {
 				...state,
 				loading: false,

@@ -49,6 +49,7 @@ export interface ItemsReducerAction {
 	type: string;
 	payload: {
 		searchResults: SearchResults;
+		itemResult: ItemInterface;
 	};
 }
 
