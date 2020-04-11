@@ -19,7 +19,6 @@ const ProductsList: React.FC<Props> = ({ products }) => {
           id,
           title,
           picture,
-          condition,
           free_shipping: freeShiping,
           price,
           address,
@@ -29,7 +28,6 @@ const ProductsList: React.FC<Props> = ({ products }) => {
               <ProductPicture alt={title} src={picture} />
               <ProductInformations
                 address={address}
-                condition={condition}
                 hideShippingIcon={!freeShiping}
                 name={title}
                 symbolCurrency={price?.symbol}
