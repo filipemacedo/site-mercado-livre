@@ -38,7 +38,7 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
 
   return (
     <DefaultLayout categories={categories}>
-      <section className="products">
+      <section className="products padding-bottom--100">
         <ContainerBox>
           <ProductsList products={items} />
         </ContainerBox>
