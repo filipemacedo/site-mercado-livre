@@ -1,12 +1,10 @@
+@import '../../styles/resources.scss';
+
 .desired-product {
   margin: 32px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
+  flex: 1;
+  
   .product__informations {
-    margin-left: 16px;
-
     .btn {
       order: 3;
       height: 48px;
@@ -23,5 +21,23 @@
     flex-basis: 100%;
     margin-top: 32px;
     max-width: 622px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .desired-product {
+    @include flex-column--center();
+  }
+}
+
+@media (min-width: 1025px) {
+  .desired-product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .product__informations {
+      margin-left: 16px;
+    }
   }
 }

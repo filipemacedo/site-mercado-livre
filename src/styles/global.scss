@@ -1,4 +1,4 @@
-$spacing-levels: '5' 5px, '10' 10px, '16' 16px, '32' 32px;
+$spacing-levels: '5' 5px, '10' 10px, '16' 16px, '32' 32px, '100' 100px;
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -118,5 +118,30 @@ a {
 
   &.btn--full {
     width: 100%;
+  }
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 320px) {
+  .container {
+    max-width: 304px;
+
+    &.container-sm--full {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) and (min-width: 321px) {
+  .container {
+    max-width: 359px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    max-width: 618px;
   }
 }

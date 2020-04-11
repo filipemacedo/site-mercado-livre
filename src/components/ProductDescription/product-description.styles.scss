@@ -10,3 +10,9 @@
   white-space: pre-wrap;
  }
 }
+
+@media (min-width: 320px) and (max-width: 1024px) {
+ .product__description {
+  text-align: center;
+ }
+}

@@ -1,3 +1,5 @@
+@import '../../styles/resources.scss';
+
 ol.products-list {
   margin: 0 16px;
   flex: 1;
@@ -9,43 +11,106 @@ ol.products-list {
       border-bottom: 1px solid #eee;
     }
 
-    flex-direction: row;
     padding: 16px 0;
+  }
+}
 
-    &.products-list__product a {
-      display: flex;
-      flex-direction: row;
+@media (max-width: 767px) and (min-width: 320px) {
+  .products-list__product a {
+    @include flex-row--center();
+
+    .product__picture {
+      margin-right: 16px;
+    }
+
+    .product__informations {
       flex: 1;
 
-      .product__picture {
-        margin-right: 16px;
-        cursor: pointer;
+      .product__general-informations {
+        @include flex-column--center();
+
+        .product__price {
+          min-width: 100px;
+        }
+
+        .product__location {
+          margin-top: 5px;
+        }
       }
 
-      .product__informations {
-        flex-wrap: wrap;
-        display: flex;
+      .product__name {
+        max-width: 294px;
+        text-align: center;
+      }
+    }
+  }
+}
 
-        .product__general-informations {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          
-          .product__price {
-            // margin-bottom: 32px;
-            min-width: 622px;
-          }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .products-list__product a {
+    display: flex;
+    flex-direction: row;
 
-          .product__location {
-            min-width: 93px;
-            text-align: center;
-          }
+    .product__picture {
+      margin-right: 16px;
+    }
+
+    .product__informations {
+      flex: 1;
+      text-align: initial;
+
+      .product__general-informations {
+        @include flex-row--center();
+
+        .product__price {
+          min-width: initial;
+          flex: 1;
         }
 
-        .product__name {
-          max-width: 410px;
-          margin-top: 32px;
+        .product__location {
+          min-width: 93px;
+          text-align: center;
         }
+      }
+
+      .product__name {
+        flex: 2;
+        max-width: 240px !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .products-list__product a {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    .product__picture {
+      margin-right: 16px;
+    }
+
+    .product__informations {
+      flex-wrap: wrap;
+      display: flex;
+
+      .product__general-informations {
+        @include flex-row--center();
+
+        .product__price {
+          min-width: 622px;
+        }
+
+        .product__location {
+          min-width: 93px;
+          text-align: center;
+        }
+      }
+
+      .product__name {
+        max-width: 410px;
+        margin-top: 32px;
       }
     }
   }
