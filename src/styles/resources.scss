@@ -1,11 +1,14 @@
-@mixin flex-column--center {
+@mixin flex--center($direction) {
  display: flex;
- flex-direction: column;
+ flex-direction: $direction;
  align-items: center;
+ flex: 1;
+}
+
+@mixin flex-column--center {
+ @include flex--center(column);
 }
 
 @mixin flex-row--center {
- display: flex;
- flex-direction: row;
- align-items: center;
+ @include flex--center(row);
 }

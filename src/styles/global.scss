@@ -126,12 +126,22 @@ a {
 @media (max-width: 320px) {
   .container {
     max-width: 304px;
+
+    &.container-sm--full {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
 
 @media (max-width: 768px) and (min-width: 321px) {
   .container {
     max-width: 344.63px;
+
+    &.container-sm--full {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
 
