@@ -29,13 +29,15 @@ export interface SearchResults {
 	author: AuthorInterface;
 }
 
+export interface ItemInterface extends ItemsInterface {
+	description: string;
+	sold_quantity: number;
+}
+
 export interface ItemsState extends SearchResults {
 	loading: boolean;
 	error: boolean;
-	selectedItem?: ItemsInterface & {
-		description: string;
-		sold_quantity: number;
-	};
+	selectedItem?: ItemInterface;
 }
 
 export interface ItemsReducerAction {
