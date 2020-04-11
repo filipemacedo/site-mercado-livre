@@ -1,32 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 import DesiredProduct from '../../components/DesiredProduct';
 
 import './product.styles.scss';
+import { RouteComponentProps } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { findItem } from '../../store/modules/items/items.actions';
+import { ApplicationState } from '../../store';
 
-const Product = () => {
+interface ProductRouterProps {
+  id: string;
+}
+
+const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
+  match,
+}) => {
+  const dispatch = useDispatch();
+  const { selectedItem } = useSelector(({ items }: ApplicationState) => items);
+
+  useEffect(() => {
+    const { id } = match.params;
+
+    dispatch(findItem(id));
+  }, [match]);
+
   return (
-    <DefaultLayout
-      categories={[
-        'Eletrônica, Áudio e Vídeo',
-        'iPod',
-        'Reproductores',
-        'iPod Touch',
-        '32 GB',
-      ]}>
+    <DefaultLayout>
       <section className="product">
         <ContainerBox>
-          <DesiredProduct
-            condition="Nuevo"
-            description="Enviamos fotos e videos da máquina assim que efetuada a compra comprovando o funcionamento da máquina,
-              assim como a fonte da máquina. Enviamos fotos e videos da máquina assim que efetuada a compra comprovando o funcionamento da máquina,
-              assim como a fonte da máquina."
-            name="Macbook Pro I5 2.7ghz/8gb 1867mhz/ssd 256gb Mod A1502/2015"
-            onPurchaseClick={() => ({})}
-            sales={200}
-            value={1980}
-          />
+          {selectedItem && (
+            <DesiredProduct
+              condition={selectedItem.condition}
+              description={selectedItem.description}
+              name={selectedItem.title}
+              onPurchaseClick={() => ({})}
+              picture={selectedItem.picture}
+              sales={selectedItem.sold_quantity}
+              symbolCurrency={selectedItem.price.currency}
+              value={selectedItem.price.amount}
+            />
+          )}
         </ContainerBox>
       </section>
     </DefaultLayout>

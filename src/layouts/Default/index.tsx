@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
 
 interface DefaultLayoutProps {
-  categories: string[];
+  categories?: string[];
 }
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({
-  categories,
+  categories = [],
   children,
 }) => {
   const dispatch = useDispatch();

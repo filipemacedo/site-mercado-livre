@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductPicture from '../ProductPicture';
 import ProductDescription from '../ProductDescription';
-import MacbookImage from '../../assets/images/macbook.webp';
 import ProductInformations from '../ProductInformations';
 
 import './desired-product.styles.scss';
@@ -13,6 +12,8 @@ export interface DesiredProductProps {
   sales: number;
   value: number;
   description: string;
+  symbolCurrency: string;
+  picture: string;
 }
 
 const DesiredProduct: React.FC<DesiredProductProps> = ({
@@ -22,9 +23,11 @@ const DesiredProduct: React.FC<DesiredProductProps> = ({
   sales,
   value,
   description,
+  symbolCurrency,
+  picture,
 }) => (
   <div className="desired-product margin--32">
-    <ProductPicture alt="" large src={MacbookImage} />
+    <ProductPicture alt={name} large src={picture} />
     <ProductInformations
       condition={condition}
       hideLocation
@@ -32,6 +35,7 @@ const DesiredProduct: React.FC<DesiredProductProps> = ({
       name={name}
       sales={sales}
       size="medium"
+      symbolCurrency={symbolCurrency}
       value={value}>
       <button
         className="btn btn--rounded btn--full bg--blue color--white border--none margin-top--32"

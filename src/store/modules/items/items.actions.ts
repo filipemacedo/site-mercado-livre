@@ -9,6 +9,6 @@ export const searchItemsSuccess = (searchResults: SearchResults) =>
 
 export const findItem = (itemId: string) => action(ItemsTypeActions.FIND_ITEM, { itemId });
 export const findItemSuccess = (itemResult: ItemInterface) =>
-	action(ItemsTypeActions.SEARCH_ITEMS_SUCCESS, { itemResult });
+	action(ItemsTypeActions.FIND_ITEM_SUCCESS, { itemResult });
 export const findItemFailed = () => action(ItemsTypeActions.FIND_ITEM_FAILED);
 export const findItemLoading = () => action(ItemsTypeActions.FIND_ITEM_LOADING);

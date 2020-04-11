@@ -24,24 +24,32 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
   children,
   hideLocation = false,
   size = 'default',
-}) => (
-  <section className={`product__informations product__informations--${size}`}>
-    {condition && sales && (
-      <span className="product-informations__sales">
-        {condition} - {sales} vendidos
-      </span>
-    )}
-    <div className="product__general-informations">
-      <ProductPrice
-        hideShippingIcon={hideShippingIcon}
-        symbolCurrency={symbolCurrency}
-        value={value}
-      />
-      {!hideLocation && <p className="product__location">Canada</p>}
-    </div>
-    <h1 className="product__name margin-top--16">{name}</h1>
-    {children}
-  </section>
-);
+}) => {
+  function verifyIfInformationsSalesIsVisible() {
+    if (sales === undefined && !condition) return false;
+
+    return true;
+  }
+
+  return (
+    <section className={`product__informations product__informations--${size}`}>
+      {verifyIfInformationsSalesIsVisible() && (
+        <span className="product-informations__sales">
+          {condition} - {sales} vendidos
+        </span>
+      )}
+      <div className="product__general-informations">
+        <ProductPrice
+          hideShippingIcon={hideShippingIcon}
+          symbolCurrency={symbolCurrency}
+          value={value}
+        />
+        {!hideLocation && <p className="product__location">Canada</p>}
+      </div>
+      <h1 className="product__name margin-top--16">{name}</h1>
+      {children}
+    </section>
+  );
+};
 
 export default ProductInformations;
