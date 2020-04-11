@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchIcon from '../../assets/icons/ic_Search.png';
 
 import './products-search.styles.scss';
@@ -14,6 +14,10 @@ const ProductsSearch: React.FC<ProductsSearchProps> = ({
 }) => {
   const [search, setSearch] = useState<string>('');
 
+  useEffect(() => {
+    setSearch(searchText);
+  }, [searchText]);
+
   return (
     <form
       className="products-search"
@@ -24,7 +28,7 @@ const ProductsSearch: React.FC<ProductsSearchProps> = ({
       <input
         onChange={({ target }) => setSearch(target.value)}
         placeholder="Nunca dejes de buscar"
-        value={search.length ? search : searchText}
+        value={search}
       />
       <button type="submit">
         <img alt="Search items" src={SearchIcon} />
