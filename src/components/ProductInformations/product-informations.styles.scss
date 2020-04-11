@@ -41,3 +41,15 @@
     }
   }
 }
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .product__informations {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1025px) {
+  .product__informations {
+    text-align: inherit;
+  }
+}
