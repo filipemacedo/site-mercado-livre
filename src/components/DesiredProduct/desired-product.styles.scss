@@ -27,6 +27,10 @@
 @media (min-width: 320px) and (max-width: 1024px) {
   .desired-product {
     @include flex-column--center();
+
+    .product__informations {
+      margin-top: 16px;
+    }
   }
 }
 

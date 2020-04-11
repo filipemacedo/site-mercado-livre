@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import SearchIcon from '../../assets/icons/ic_Search.png';
+import LowSearchIcon from '../../assets/icons/ic_Search.png';
+import HighSearchIcon from '../../assets/icons/ic_Search@2x.png.png';
 
 import './products-search.styles.scss';
 
@@ -31,7 +32,11 @@ const ProductsSearch: React.FC<ProductsSearchProps> = ({
         value={search}
       />
       <button type="submit">
-        <img alt="Search items" src={SearchIcon} />
+        <img
+          alt="Search items"
+          src={LowSearchIcon}
+          srcSet={`${LowSearchIcon} 500w, ${HighSearchIcon} 768w`}
+        />
       </button>
     </form>
   );

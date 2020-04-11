@@ -1,8 +1,9 @@
 import React from 'react';
 
-import ShippingIcon from '../../assets/icons/ic_shipping@2x.png.png'
+import HighShippingIcon from '../../assets/icons/ic_shipping@2x.png.png';
+import LowShippingIcon from '../../assets/icons/ic_shipping.png';
 
-import "./product-price.styles.scss";
+import './product-price.styles.scss';
 
 export interface ProductPriceProps {
   symbolCurrency?: string;
@@ -12,20 +13,19 @@ export interface ProductPriceProps {
 
 const ProductPrice: React.FC<ProductPriceProps> = ({
   value,
-  symbolCurrency = "R$",
+  symbolCurrency = 'R$',
   hideShippingIcon = false,
 }) => (
   <div className="product__price">
-    <span className="price__symbol margin-right--5">
-      {symbolCurrency}
-    </span>
+    <span className="price__symbol margin-right--5">{symbolCurrency}</span>
     <span className="price__value">{value}</span>
 
     {!hideShippingIcon && (
       <img
         alt="Frete disponível"
         className="shipping-icon margin-left--10"
-        src={ShippingIcon}
+        src={LowShippingIcon}
+        srcSet={`${LowShippingIcon} 500w, ${HighShippingIcon} 768w`}
       />
     )}
   </div>
