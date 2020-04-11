@@ -45,6 +45,10 @@
 }
 
 @media (min-width: 1025px) {
+  .product__picture {
+    @include fixedSize(180px);
+  }
+
   .product__picture--large {
     &,
     img {
