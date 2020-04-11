@@ -24,7 +24,8 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 		case ItemsTypeActions.RESET_SEARCH_ITEMS:
 			return {
 				...state,
-				items: []
+				items: [],
+				categories: []
 			};
 
 		case ItemsTypeActions.RESET_FIND_ITEM:

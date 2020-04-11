@@ -10,33 +10,39 @@ import { ItemsState } from '../../store/modules/items/items.types';
 import { useSelector, useDispatch } from 'react-redux';
 import { ApplicationState } from '../../store';
 import { RouteComponentProps } from 'react-router-dom';
-import { searchItems } from '../../store/modules/items/items.actions';
+import {
+  searchItems,
+  resetSearchItems,
+} from '../../store/modules/items/items.actions';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
-	const { items, categories }: ItemsState = useSelector((state: ApplicationState) => state.items);
+  const { items, categories }: ItemsState = useSelector(
+    (state: ApplicationState) => state.items,
+  );
 
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	useEffect(
-		() => {
-			const { search } = queryString.parse(location.search);
+  useEffect(() => {
+    const { search } = queryString.parse(location.search);
 
-			if (typeof search !== 'string') return;
+    if (typeof search !== 'string') return;
 
-			dispatch(searchItems(search));
-		},
-		[ location ]
-	);
+    dispatch(searchItems(search));
 
-	return (
-		<DefaultLayout categories={categories}>
-			<section className="products">
-				<ContainerBox>
-					<ProductsList products={items} />
-				</ContainerBox>
-			</section>
-		</DefaultLayout>
-	);
+    return () => {
+      dispatch(resetSearchItems());
+    };
+  }, [location]);
+
+  return (
+    <DefaultLayout categories={categories}>
+      <section className="products">
+        <ContainerBox>
+          <ProductsList products={items} />
+        </ContainerBox>
+      </section>
+    </DefaultLayout>
+  );
 };
 
 export default Products;
