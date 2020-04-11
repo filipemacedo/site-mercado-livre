@@ -14,3 +14,7 @@ export const findItemFailed = () => action(ItemsTypeActions.FIND_ITEM_FAILED);
 export const findItemLoading = () => action(ItemsTypeActions.FIND_ITEM_LOADING);
 
 export const defineSearchQuery = (query: string) => action(ItemsTypeActions.DEFINE_SEARCH_QUERY, { query });
+
+export const resetFindItem = () => action(ItemsTypeActions.RESET_FIND_ITEM);
+export const resetSearchItems = () => action(ItemsTypeActions.RESET_SEARCH_ITEMS);
+export const resetSearchQuery = () => action(ItemsTypeActions.RESET_SEARCH_QUERY);

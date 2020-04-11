@@ -9,7 +9,11 @@ export enum ItemsTypeActions {
 	'FIND_ITEM_FAILED' = '@item/FIND_ITEM_FAILED',
 	'FIND_ITEM_SUCCESS' = '@item/FIND_ITEM_SUCCESS',
 
-	'DEFINE_SEARCH_QUERY' = '@items/DEFINE_SEARCH_QUERY'
+	'DEFINE_SEARCH_QUERY' = '@items/DEFINE_SEARCH_QUERY',
+
+	'RESET_SEARCH_QUERY' = '@items/RESET_SEARCH_QUERY',
+	'RESET_FIND_ITEM' = '@items/RESET_FIND_ITEM',
+	'RESET_SEARCH_ITEMS' = '@items/RESET_SEARCH_ITEMS'
 }
 
 export interface AuthorInterface {

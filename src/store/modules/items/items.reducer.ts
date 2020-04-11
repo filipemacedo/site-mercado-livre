@@ -15,6 +15,12 @@ const itemsInitialState: ItemsState = {
 
 const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialState, action) => {
 	switch (action.type) {
+		case ItemsTypeActions.RESET_SEARCH_QUERY:
+			return {
+				...state,
+				searchQuery: ""
+			}
+
 		case ItemsTypeActions.DEFINE_SEARCH_QUERY:
 			return {
 				...state,

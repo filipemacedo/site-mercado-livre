@@ -6,7 +6,8 @@ import {
 	findItemLoading,
 	findItemSuccess,
 	findItemFailed,
-	defineSearchQuery
+	defineSearchQuery,
+	resetSearchQuery
 } from './items.actions';
 import { searchItems, findItem } from '../../../services/api';
 import { SearchResults, ItemsSagaEffect, ItemInterface } from './items.types';
@@ -30,6 +31,7 @@ export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 
 export function* findItemSaga({ payload }: ItemsSagaEffect) {
 	try {
+		yield put(resetSearchQuery());
 		yield put(findItemLoading());
 
 		const itemResult: ItemInterface = yield call(findItem, payload.itemId);
