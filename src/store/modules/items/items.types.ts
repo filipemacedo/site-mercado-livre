@@ -57,5 +57,6 @@ export interface ItemsSagaEffect {
 	type: string;
 	payload: {
 		query: string;
+		itemId: string;
 	};
 }
