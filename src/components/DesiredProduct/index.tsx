@@ -10,7 +10,7 @@ export interface DesiredProductProps {
   condition: string;
   name: string;
   sales: number;
-  value: number;
+  value: string;
   description: string;
   symbolCurrency: string;
   picture: string;
