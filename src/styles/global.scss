@@ -123,18 +123,13 @@ a {
 
 // MEDIA QUERIES
 
-@media (max-width: 320px) {
+@media (max-width: 360px) and (min-width: 320px) {
   .container {
     max-width: 304px;
-
-    &.container-sm--full {
-      max-width: 100%;
-      width: 100%;
-    }
   }
 }
 
-@media (max-width: 767px) and (min-width: 321px) {
+@media (max-width: 767px) and (min-width: 361px) {
   .container {
     max-width: 359px;
   }
