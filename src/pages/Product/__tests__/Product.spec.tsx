@@ -12,6 +12,7 @@ import history from '../../../routes/history';
 import numberFormatCurrency from '../../../utils/number-format-currency';
 import { resetFindItem } from '../../../store/modules/items/items.actions';
 import delay from '../../../utils/delay';
+import getErrorMessage from '../../../utils/error-message';
 
 jest.mock('../../../services/api');
 
@@ -31,8 +32,6 @@ const mockItem: ItemInterface = {
     amount: faker.random.number(),
   },
 };
-
-
 
 describe('Product Page', () => {
   beforeEach(() => {
@@ -67,7 +66,7 @@ describe('Product Page', () => {
       ...desiredProductProps
     }: any = DesiredProduct.props();
 
-    expect(findItem).toBeCalledWith("valid_id");
+    expect(findItem).toBeCalledWith('valid_id');
 
     expect(desiredProductProps).toEqual({
       condition: mockItem.condition,
@@ -130,7 +129,7 @@ describe('Product Page', () => {
 
     app.update();
 
-    expect(app.find("DesiredProduct")).toHaveLength(1);
+    expect(app.find('DesiredProduct')).toHaveLength(1);
   });
 
   it('should reset finded item when unmount component', () => {
@@ -154,5 +153,47 @@ describe('Product Page', () => {
 
     expect(selectedItem).not.toEqual(currentSelectedItem);
     expect(currentSelectedItem).not.toBeDefined();
-  })
+  });
+
+  it('should show BoxError when error is true', async () => {
+    (findItem as jest.Mock).mockImplementation(() => {
+      throw {
+        status: 500,
+      };
+    });
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items/valid_id']}>
+            <Switch>
+              <Route path="/items/:id" component={Product}></Route>
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    expect(app.find('ErrorBox')).toBeDefined();
+    expect(app.find('ErrorBox').prop('description')).toBe(getErrorMessage(500));
+  });
+
+  it('should show BoxError not found when not have element', async () => {
+    (findItem as jest.Mock).mockImplementation(() => undefined);
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items/valid_id']}>
+            <Switch>
+              <Route path="/items/:id" component={Product}></Route>
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    expect(app.find('ErrorBox')).toBeDefined();
+    expect(app.find('ErrorBox').prop('description')).toBe(getErrorMessage(404));
+  });
 });
