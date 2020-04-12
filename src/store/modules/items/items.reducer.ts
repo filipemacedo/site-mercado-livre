@@ -1,5 +1,7 @@
 import { Reducer } from 'react';
 import { ItemsState, ItemsReducerAction, ItemsTypeActions } from './items.types';
+import { AxiosError } from 'axios';
+import getErrorMessage from '../../../utils/error-message';
 
 const itemsInitialState: ItemsState = {
 	loading: true,
@@ -70,10 +72,16 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 
 		case ItemsTypeActions.SEARCH_ITEMS_FAILED:
 		case ItemsTypeActions.FIND_ITEM_FAILED:
+			const { response }: AxiosError = action.payload.error;
+
 			return {
 				...state,
 				loading: false,
-				error: true
+				error: true,
+				errorDetails: {
+					statusCode: response?.status,
+					message: getErrorMessage(response?.status)
+				}
 			};
 
 		default:
