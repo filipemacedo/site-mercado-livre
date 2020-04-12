@@ -50,7 +50,7 @@ describe('Product Page', () => {
         <ConnectedRouter history={history}>
           <MemoryRouter initialEntries={['/items/valid_id']}>
             <Switch>
-              <Route path="/items" component={Product}></Route>
+              <Route path="/items/:id" component={Product}></Route>
             </Switch>
           </MemoryRouter>
         </ConnectedRouter>
@@ -66,6 +66,8 @@ describe('Product Page', () => {
       onPurchaseClick,
       ...desiredProductProps
     }: any = DesiredProduct.props();
+
+    expect(findItem).toBeCalledWith("valid_id");
 
     expect(desiredProductProps).toEqual({
       condition: mockItem.condition,
@@ -91,7 +93,7 @@ describe('Product Page', () => {
         <ConnectedRouter history={history}>
           <MemoryRouter initialEntries={['/items/valid_id']}>
             <Switch>
-              <Route path="/items" component={Product}></Route>
+              <Route path="/items/:id" component={Product}></Route>
             </Switch>
           </MemoryRouter>
         </ConnectedRouter>
@@ -113,7 +115,7 @@ describe('Product Page', () => {
         <ConnectedRouter history={history}>
           <MemoryRouter initialEntries={['/items/valid_id']}>
             <Switch>
-              <Route path="/items" component={Product}></Route>
+              <Route path="/items/:id" component={Product}></Route>
             </Switch>
           </MemoryRouter>
         </ConnectedRouter>
