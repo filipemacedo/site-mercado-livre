@@ -1,4 +1,4 @@
-import getErrorMessage from './error-message';
+import getErrorMessage from '../error-message';
 
 describe('function getErrorMessage', () => {
 	it('should return a message when code is 404', () => {
