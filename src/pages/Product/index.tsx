@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 import DesiredProduct from '../../components/DesiredProduct';
@@ -36,8 +37,14 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
     };
   }, [match, dispatch]);
 
+  function definePageTitle() {
+    if (selectedItem) {
+      return `${selectedItem.title} em ${process.env.REACT_APP_NAME}`;
+    }
+  }
+
   return (
-    <DefaultLayout>
+    <DefaultLayout page={{ title: definePageTitle() }}>
       <section className="product">
         <ContainerBox>
           {loading && <DesiredProductPlaceholder />}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import queryString from 'query-string';
+import { Helmet } from 'react-helmet';
 
 import ProductsList from '../../components/ProductsList';
 import ContainerBox from '../../components/ContainerBox';
@@ -18,7 +19,7 @@ import {
 } from '../../store/modules/items/items.actions';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
-  const { items, categories, loading }: ItemsState = useSelector(
+  const { items, categories, loading, searchQuery }: ItemsState = useSelector(
     (state: ApplicationState) => state.items,
   );
 
@@ -37,8 +38,22 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     };
   }, [location]);
 
+  function definePageTitle() {
+    return searchQuery && `${searchQuery} no ${process.env.REACT_APP_NAME}`;
+  }
+
   return (
-    <DefaultLayout categories={categories} loading={loading}>
+    <DefaultLayout
+      categories={categories}
+      loading={loading}
+      page={{ title: definePageTitle() }}>
+      <Helmet>
+        <title>
+          {`${searchQuery ? `${searchQuery} no` : ''} ${
+            process.env.REACT_APP_NAME
+          } `}
+        </title>
+      </Helmet>
       <section className="products padding-bottom--100">
         <ContainerBox>
           {loading ? (
