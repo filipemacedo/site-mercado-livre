@@ -10,6 +10,7 @@ import store from '../../../store';
 import { ConnectedRouter } from 'connected-react-router';
 import history from '../../../routes/history';
 import numberFormatCurrency from '../../../utils/number-format-currency';
+import { resetFindItem } from '../../../store/modules/items/items.actions';
 
 jest.mock('../../../services/api');
 
@@ -30,10 +31,19 @@ const mockItem: ItemInterface = {
   },
 };
 
+const delay = (ms: number, value?: any) =>
+  new Promise((resolve) => setTimeout(() => resolve(value), ms));
+
 describe('Product Page', () => {
   beforeEach(() => {
     (findItem as jest.Mock).mockImplementation((): ItemInterface => mockItem);
   });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+    store.dispatch(resetFindItem());
+  });
+
   it('should show a Product based from id param', () => {
     const app = mount(
       <Provider store={store}>
@@ -69,7 +79,27 @@ describe('Product Page', () => {
         value: mockItem.price.amount,
       }),
     });
+  });
 
-    console.log(ProductSection.debug());
+  it('should show a DesiredProductPlaceholder when is loading', () => {
+    (findItem as jest.Mock).mockImplementation(async () => {
+      await delay(2000, mockItem);
+    });
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items/valid_id']}>
+            <Switch>
+              <Route path="/items" component={Product}></Route>
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    const ProductSection = app.find('DefaultLayout main section.product');
+    
+    expect(ProductSection.find("DesiredProductPlaceholder")).toBeDefined();
   });
 });
