@@ -11,7 +11,6 @@ import {
 } from './items.actions';
 import { searchItems, findItem } from '../../../services/api';
 import { SearchResults, ItemsSagaEffect, ItemInterface } from './items.types';
-import { AxiosError } from 'axios';
 
 export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 	try {

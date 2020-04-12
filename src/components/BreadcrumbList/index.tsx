@@ -27,7 +27,11 @@ const BreadcrumbList: React.FC<Props> = ({ categories }) => {
           key={element.replace(' ', '')}>
           <Link to={`/items?search=${element}`}>{element}</Link>
           {!isLastCategory(index) && (
-            <img className="icon-arrow-right" src={RightIcon} />
+            <img
+              alt="Arrow right icon"
+              className="icon-arrow-right"
+              src={RightIcon}
+            />
           )}
         </li>
       ))}

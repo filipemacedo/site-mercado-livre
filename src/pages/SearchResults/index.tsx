@@ -45,7 +45,7 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
       dispatch(resetSearchItems());
       dispatch(resetSearchQuery());
     };
-  }, [location]);
+  }, [location, dispatch]);
 
   function definePageMetaTags(): HelmetMetaTagsProps {
     if (!searchQuery) return {};
