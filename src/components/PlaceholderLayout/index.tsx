@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqueString from 'unique-string';
 
 interface PlaceholderLayoutProps {
   rows?: number;
@@ -8,13 +9,12 @@ interface PlaceholderLayoutProps {
 const PlaceholderLayout: React.FC<PlaceholderLayoutProps> = ({
   children,
   rows = 1,
-  className = "",
+  className = '',
 }) => {
   return (
     <div className={`placeholder-layout ${className}`}>
       {Array.from({ length: rows }).map(() => (
-        // eslint-disable-next-line react/jsx-key
-        <div>{children}</div>
+        <div key={uniqueString()}>{children}</div>
       ))}
     </div>
   );
