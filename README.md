@@ -15,7 +15,7 @@ Esse repositório contém o front-end do layout do Mercado Livre.
 
 ## Dependências
 - Node
-- [API do Mercado Livre]()
+- [API do Mercado Livre](https://github.com/filipemacedo/api-mercado-livre)
 
 # Iniciando
 
