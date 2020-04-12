@@ -1,10 +1,12 @@
+@import '../../styles/variables.scss';
+
 .product__informations {
   display: flex;
   flex-direction: column;
 
   .product__location {
     font-size: 12px;
-    color: #666;
+    color: $dove-grey;
   }
 
   .product__name {
@@ -13,7 +15,7 @@
   }
 
   span.product-informations__sales {
-    color: #666;
+    color: $dove-grey;
     font-size: 14px;
   }
 
@@ -22,7 +24,7 @@
 
     h1 {
       order: 2;
-      color: #333;
+      color: $black-lighter;
       font-size: 24px;
       font-weight: bold;
     }

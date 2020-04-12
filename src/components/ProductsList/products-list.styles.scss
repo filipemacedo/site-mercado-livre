@@ -1,4 +1,5 @@
 @import '../../styles/resources.scss';
+@import '../../styles/variables.scss';
 
 ol.products-list {
   margin: 0 16px;
@@ -8,7 +9,7 @@ ol.products-list {
     list-style: none;
 
     &:not(:last-child) {
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $grey-nuance-lighter;
     }
 
     padding: 16px 0;

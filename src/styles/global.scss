@@ -1,5 +1,5 @@
-@import "./animations.scss";
-@import "./variables.scss";
+@import './animations.scss';
+@import './variables.scss';
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -72,7 +72,7 @@ body,
 }
 
 body {
-  background: #eeeeee;
+  background: $grey-nuance-lighter;
 }
 
 a {

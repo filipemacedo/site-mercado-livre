@@ -1,9 +1,11 @@
+@import '../../styles/variables.scss';
+
 .navigation-breadcrumb__list {
  list-style: none;
 
  li {
   display: inline;
-  color: #999;
+  color: $dust-grey;
   font-size: 14px;
 
   &.navigation-breadcrumb__list__element--active {
