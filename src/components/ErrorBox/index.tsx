@@ -6,10 +6,10 @@ import './error-box.styles.scss';
 
 interface ErrorBoxProps {
   title?: string;
-  description: string;
+  description?: string;
 }
 
-const ErrorBox: React.FC<ErrorBoxProps> = ({ title = 'Erro!', description }) => (
+const ErrorBox: React.FC<ErrorBoxProps> = ({ title = 'Erro!', description = "" }) => (
   <div className="container">
     <section className="error box padding--16">
       <picture className="error__icon margin-right--16">
