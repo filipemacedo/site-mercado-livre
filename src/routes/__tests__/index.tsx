@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import Routes from '..';
 import store from '../../store';
-import { MemoryRouter } from 'react-router-dom';
 
 describe('Routes', () => {
   it('should define routes', () => {

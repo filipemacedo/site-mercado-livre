@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+__snapshots__
+
 *.todo
 
 .env.*
