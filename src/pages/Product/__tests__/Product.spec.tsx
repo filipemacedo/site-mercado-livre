@@ -132,4 +132,27 @@ describe('Product Page', () => {
 
     expect(app.find("DesiredProduct")).toHaveLength(1);
   });
+
+  it('should reset finded item when unmount component', () => {
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items/valid_id']}>
+            <Switch>
+              <Route path="/items/:id" component={Product}></Route>
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    const { selectedItem } = store.getState().items;
+
+    app.unmount();
+
+    const currentSelectedItem = store.getState().items.selectedItem;
+
+    expect(selectedItem).not.toEqual(currentSelectedItem);
+    expect(currentSelectedItem).not.toBeDefined();
+  })
 });
