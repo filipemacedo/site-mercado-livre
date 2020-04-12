@@ -11,6 +11,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import history from '../../../routes/history';
 import numberFormatCurrency from '../../../utils/number-format-currency';
 import { resetFindItem } from '../../../store/modules/items/items.actions';
+import delay from '../../../utils/delay';
 
 jest.mock('../../../services/api');
 
@@ -31,8 +32,7 @@ const mockItem: ItemInterface = {
   },
 };
 
-const delay = (ms: number, value?: any) =>
-  new Promise((resolve) => setTimeout(() => resolve(value), ms));
+
 
 describe('Product Page', () => {
   beforeEach(() => {
