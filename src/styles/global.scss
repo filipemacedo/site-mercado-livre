@@ -1,4 +1,5 @@
-$spacing-levels: '5' 5px, '10' 10px, '16' 16px, '32' 32px, '100' 100px;
+@import "./animations.scss";
+@import "./variables.scss";
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -77,6 +78,25 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.placeholder-layout {
+  flex: 1;
+
+  .rect-shape,
+  .text-row {
+    animation: placeload 1s forwards linear infinite;
+    background: $placeholder-background;
+    background: $grey-nuance-lighter;
+    background: linear-gradient(
+      to right,
+      $grey-nuance-lighter 8%,
+      $grey-nuance-darker 18%,
+      $grey-nuance-lighter 33%
+    );
+    background-size: 1600px 104px;
+    position: relative;
+  }
 }
 
 .container {

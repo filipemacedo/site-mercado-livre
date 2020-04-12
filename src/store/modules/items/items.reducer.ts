@@ -55,6 +55,8 @@ const reducer: Reducer<ItemsState, ItemsReducerAction> = (state = itemsInitialSt
 		case ItemsTypeActions.FIND_ITEM_SUCCESS:
 			return {
 				...state,
+				loading: false,
+				error: false,
 				selectedItem: action.payload.itemResult
 			};
 

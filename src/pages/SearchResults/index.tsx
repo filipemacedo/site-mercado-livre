@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import ProductsList from '../../components/ProductsList';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
+import ProductPlaceholder from '../../components/ProductPlaceholder';
 
 import './search-results.styles.scss';
 import { ItemsState } from '../../store/modules/items/items.types';
@@ -13,11 +14,11 @@ import { RouteComponentProps } from 'react-router-dom';
 import {
   searchItems,
   resetSearchItems,
-		resetSearchQuery,
+  resetSearchQuery,
 } from '../../store/modules/items/items.actions';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
-  const { items, categories }: ItemsState = useSelector(
+  const { items, categories, loading }: ItemsState = useSelector(
     (state: ApplicationState) => state.items,
   );
 
@@ -31,16 +32,20 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     dispatch(searchItems(search));
 
     return () => {
-						dispatch(resetSearchItems());
-						dispatch(resetSearchQuery());
+      dispatch(resetSearchItems());
+      dispatch(resetSearchQuery());
     };
   }, [location]);
 
   return (
-    <DefaultLayout categories={categories}>
+    <DefaultLayout categories={categories} loading={loading}>
       <section className="products padding-bottom--100">
         <ContainerBox>
-          <ProductsList products={items} />
+          {loading ? (
+            <ProductPlaceholder marginLevel={16} rows={4} />
+          ) : (
+            <ProductsList products={items} />
+          )}
         </ContainerBox>
       </section>
     </DefaultLayout>

@@ -12,6 +12,7 @@ import {
 } from '../../store/modules/items/items.actions';
 import { ApplicationState } from '../../store';
 import numberFormatCurrency from '../../utils/number-format-currency';
+import DesiredProductPlaceholder from '../../components/DesiredProductPlaceholder';
 
 interface ProductRouterProps {
   id: string;
@@ -21,7 +22,9 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
   match,
 }) => {
   const dispatch = useDispatch();
-  const { selectedItem } = useSelector(({ items }: ApplicationState) => items);
+  const { selectedItem, loading } = useSelector(
+    ({ items }: ApplicationState) => items,
+  );
 
   useEffect(() => {
     const { id } = match.params;
@@ -37,6 +40,7 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
     <DefaultLayout>
       <section className="product">
         <ContainerBox>
+          {loading && <DesiredProductPlaceholder />}
           {selectedItem && (
             <DesiredProduct
               condition={selectedItem.condition}

@@ -37,4 +37,16 @@ describe('DefaultLayout', () => {
 
     expect(navigationBreadCrumbProps.categories).toEqual(categories);
   });
+
+  it('should DefaultLayout render NavigationBreadcrumbPlaceholder', () => {
+    const app = mount(
+      <Provider store={store}>
+        <MemoryRouter>
+          <DefaultLayout categories={[]} loading={true} />
+        </MemoryRouter>
+      </Provider>,
+    );
+
+    expect(app.find('NavigationBreadcrumbPlaceholder')).toBeDefined();
+  });
 });
