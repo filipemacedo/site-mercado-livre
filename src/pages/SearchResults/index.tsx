@@ -19,6 +19,7 @@ import {
 } from '../../store/modules/items/items.actions';
 import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
 import pascalCase from '../../utils/pascal-case';
+import getErrorMessage from '../../utils/error-message';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
   const {
@@ -27,6 +28,7 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     loading,
     searchQuery,
     error,
+    errorDetails,
   }: ItemsState = useSelector((state: ApplicationState) => state.items);
 
   const dispatch = useDispatch();
@@ -53,20 +55,27 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     };
   }
 
+  const productListOrNotFoundError =
+    !loading && items.length ? (
+      <ProductsList products={items} />
+    ) : (
+      <ErrorBox description={getErrorMessage(404)} title="¡Perdon!" />
+    );
+
   return (
     <DefaultLayout
       categories={categories}
       loading={loading}
       page={definePageMetaTags()}>
       {error ? (
-        <ErrorBox description="Lo siento Ocurrio un error. Ya estamos trabajando para resolverlo." title="Desculpe!" />
+        <ErrorBox description={errorDetails?.message} title="¡Perdon!" />
       ) : (
         <section className="products padding-bottom--100">
           <ContainerBox>
             {loading ? (
               <ProductPlaceholder marginLevel={16} rows={4} />
             ) : (
-              <ProductsList products={items} />
+              productListOrNotFoundError
             )}
           </ContainerBox>
         </section>
