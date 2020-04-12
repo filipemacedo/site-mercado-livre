@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios';
+
 export enum ItemsTypeActions {
 	'SEARCH_ITEMS' = '@items/SEARCH_ITEMS',
 	'SEARCH_ITEMS_LOADING' = '@items/SEARCH_ITEMS_LOADING',
@@ -50,6 +52,10 @@ export interface ItemInterface extends ItemsInterface {
 export interface ItemsState extends SearchResults {
 	loading: boolean;
 	error: boolean;
+	errorDetails?: {
+		message?: string;
+		statusCode?: number;
+	};
 	selectedItem?: ItemInterface;
 	searchQuery: string;
 }
@@ -60,6 +66,7 @@ export interface ItemsReducerAction {
 		searchResults: SearchResults;
 		itemResult: ItemInterface;
 		query: string;
+		error: AxiosError;
 	};
 }
 

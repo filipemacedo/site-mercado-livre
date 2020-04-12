@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import queryString from 'query-string';
-import { Helmet } from 'react-helmet';
 
 import ProductsList from '../../components/ProductsList';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 import ProductPlaceholder from '../../components/ProductPlaceholder';
+import ErrorBox from '../../components/ErrorBox';
 
 import './search-results.styles.scss';
 import { ItemsState } from '../../store/modules/items/items.types';
@@ -19,11 +19,17 @@ import {
 } from '../../store/modules/items/items.actions';
 import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
 import pascalCase from '../../utils/pascal-case';
+import getErrorMessage from '../../utils/error-message';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
-  const { items, categories, loading, searchQuery }: ItemsState = useSelector(
-    (state: ApplicationState) => state.items,
-  );
+  const {
+    items,
+    categories,
+    loading,
+    searchQuery,
+    error,
+    errorDetails,
+  }: ItemsState = useSelector((state: ApplicationState) => state.items);
 
   const dispatch = useDispatch();
 
@@ -49,20 +55,31 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     };
   }
 
+  const productListOrNotFoundError =
+    !loading && items.length ? (
+      <ProductsList products={items} />
+    ) : (
+      <ErrorBox description={getErrorMessage(404)} title="¡Perdon!" />
+    );
+
   return (
     <DefaultLayout
       categories={categories}
       loading={loading}
       page={definePageMetaTags()}>
-      <section className="products padding-bottom--100">
-        <ContainerBox>
-          {loading ? (
-            <ProductPlaceholder marginLevel={16} rows={4} />
-          ) : (
-            <ProductsList products={items} />
-          )}
-        </ContainerBox>
-      </section>
+      {error ? (
+        <ErrorBox description={errorDetails?.message} title="¡Perdon!" />
+      ) : (
+        <section className="products padding-bottom--100">
+          <ContainerBox>
+            {loading ? (
+              <ProductPlaceholder marginLevel={16} rows={4} />
+            ) : (
+              productListOrNotFoundError
+            )}
+          </ContainerBox>
+        </section>
+      )}
     </DefaultLayout>
   );
 };

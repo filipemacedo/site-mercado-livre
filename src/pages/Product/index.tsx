@@ -13,6 +13,8 @@ import {
 import { ApplicationState } from '../../store';
 import numberFormatCurrency from '../../utils/number-format-currency';
 import DesiredProductPlaceholder from '../../components/DesiredProductPlaceholder';
+import ErrorBox from '../../components/ErrorBox';
+import getErrorMessage from '../../utils/error-message';
 
 interface ProductRouterProps {
   id: string;
@@ -22,7 +24,7 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
   match,
 }) => {
   const dispatch = useDispatch();
-  const { selectedItem, loading } = useSelector(
+  const { selectedItem, loading, error, errorDetails } = useSelector(
     ({ items }: ApplicationState) => items,
   );
 
@@ -48,27 +50,34 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
 
   return (
     <DefaultLayout page={definePageTags()}>
-      <section className="product">
-        <ContainerBox>
-          {loading && <DesiredProductPlaceholder />}
-          {selectedItem && (
-            <DesiredProduct
-              condition={selectedItem.condition}
-              description={selectedItem.description}
-              name={selectedItem.title}
-              onPurchaseClick={() => ({})}
-              picture={selectedItem.picture}
-              sales={selectedItem.sold_quantity}
-              symbolCurrency={selectedItem.price.symbol}
-              value={numberFormatCurrency({
-                currency: selectedItem.price.currency,
-                decimals: selectedItem.price.decimals,
-                value: selectedItem.price.amount,
-              })}
-            />
-          )}
-        </ContainerBox>
-      </section>
+      {error ? (
+        <ErrorBox description={errorDetails?.message} title="¡Perdon!" />
+      ) : (
+        <section className="product">
+          <ContainerBox>
+            {loading ? (
+              <DesiredProductPlaceholder />
+            ) : selectedItem ? (
+              <DesiredProduct
+                condition={selectedItem.condition}
+                description={selectedItem.description}
+                name={selectedItem.title}
+                onPurchaseClick={() => ({})}
+                picture={selectedItem.picture}
+                sales={selectedItem.sold_quantity}
+                symbolCurrency={selectedItem.price.symbol}
+                value={numberFormatCurrency({
+                  currency: selectedItem.price.currency,
+                  decimals: selectedItem.price.decimals,
+                  value: selectedItem.price.amount,
+                })}
+              />
+            ) : (
+              <ErrorBox description={getErrorMessage(404)} title="¡Perdon!" />
+            )}
+          </ContainerBox>
+        </section>
+      )}
     </DefaultLayout>
   );
 };

@@ -11,6 +11,7 @@ import {
 } from './items.actions';
 import { searchItems, findItem } from '../../../services/api';
 import { SearchResults, ItemsSagaEffect, ItemInterface } from './items.types';
+import { AxiosError } from 'axios';
 
 export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 	try {
@@ -23,9 +24,9 @@ export function* searchItemsSaga({ payload }: ItemsSagaEffect) {
 
 		yield put(searchItemsSuccess(searchResults));
 	} catch (error) {
-		yield put(searchItemsFailed());
+		yield put(searchItemsFailed(error));
 
-		console.log(error);
+		console.log();
 	}
 }
 
@@ -38,6 +39,6 @@ export function* findItemSaga({ payload }: ItemsSagaEffect) {
 
 		yield put(findItemSuccess(itemResult));
 	} catch (error) {
-		yield put(findItemFailed());
+		yield put(findItemFailed(error));
 	}
 }
