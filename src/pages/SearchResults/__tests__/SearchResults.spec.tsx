@@ -127,4 +127,30 @@ describe('SearchResults Page', () => {
 
     expect(app.find('ProductPlaceholder')).toBeDefined();
   });
+
+  it('should reset search query and search results when component unmount', () => {
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items?search=Macbook']}>
+            <Switch>
+              <Route path="/items" component={SearchResultsPage} />
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    const { searchQuery, items } = store.getState().items;
+
+    expect(items.length).toBe(mockSearchResult.items.length);
+    expect(searchQuery).toBe('Macbook');
+
+    app.unmount();
+    
+    const itemsThenUnmount = store.getState().items;
+
+    expect(itemsThenUnmount.items.length).not.toBe(mockSearchResult.items.length);
+    expect(itemsThenUnmount.searchQuery).not.toBe('Macbook');
+  });
 });

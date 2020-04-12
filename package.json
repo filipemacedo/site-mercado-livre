@@ -75,7 +75,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/"
+      "!src/services/*.ts"
     ],
     "coverageReporters": [
       "text"
