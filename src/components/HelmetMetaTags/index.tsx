@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Helmet } from 'react-helmet';
-
-const { REACT_APP_NAME } = process.env;
+import applicationConfig from '../../config/application';
 
 export interface HelmetMetaTagsProps {
   title?: string;
@@ -11,7 +10,7 @@ export interface HelmetMetaTagsProps {
 }
 
 const HelmetMetaTags: React.FC<HelmetMetaTagsProps> = ({
-  title = REACT_APP_NAME,
+  title = applicationConfig.name,
   description = '',
   imagePreview = '',
 }) => {

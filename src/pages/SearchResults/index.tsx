@@ -20,6 +20,7 @@ import {
 import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
 import pascalCase from '../../utils/pascal-case';
 import getErrorMessage from '../../utils/error-message';
+import applicationConfig from '../../config/application';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
   const {
@@ -50,7 +51,7 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     if (!searchQuery) return {};
 
     return {
-      title: `${pascalCase(searchQuery)} no ${process.env.REACT_APP_NAME}`,
+      title: `${pascalCase(searchQuery)} no ${applicationConfig.name}`,
       description: `Encontrar teléfonos ${searchQuery} en el mercado libre`,
     };
   }

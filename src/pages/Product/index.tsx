@@ -15,6 +15,7 @@ import numberFormatCurrency from '../../utils/number-format-currency';
 import DesiredProductPlaceholder from '../../components/DesiredProductPlaceholder';
 import ErrorBox from '../../components/ErrorBox';
 import getErrorMessage from '../../utils/error-message';
+import applicationConfig from '../../config/application';
 
 interface ProductRouterProps {
   id: string;
@@ -41,7 +42,7 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
   function definePageTags() {
     if (selectedItem) {
       return {
-        title: `${selectedItem.title} em ${process.env.REACT_APP_NAME}`,
+        title: `${selectedItem.title} em ${applicationConfig.name}`,
         description: selectedItem.description,
         imagePreview: selectedItem.picture,
       };
