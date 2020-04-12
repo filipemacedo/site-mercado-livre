@@ -2,7 +2,7 @@ import { Reducer } from 'react';
 import { ItemsState, ItemsReducerAction, ItemsTypeActions } from './items.types';
 
 const itemsInitialState: ItemsState = {
-	loading: false,
+	loading: true,
 	error: false,
 	searchQuery: '',
 	items: [],

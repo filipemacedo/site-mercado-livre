@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import queryString from 'query-string';
-import { Helmet } from 'react-helmet';
 
 import ProductsList from '../../components/ProductsList';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 import ProductPlaceholder from '../../components/ProductPlaceholder';
+import ErrorBox from '../../components/ErrorBox';
 
 import './search-results.styles.scss';
 import { ItemsState } from '../../store/modules/items/items.types';
@@ -21,9 +21,13 @@ import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
 import pascalCase from '../../utils/pascal-case';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
-  const { items, categories, loading, searchQuery }: ItemsState = useSelector(
-    (state: ApplicationState) => state.items,
-  );
+  const {
+    items,
+    categories,
+    loading,
+    searchQuery,
+    error,
+  }: ItemsState = useSelector((state: ApplicationState) => state.items);
 
   const dispatch = useDispatch();
 
@@ -54,15 +58,19 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
       categories={categories}
       loading={loading}
       page={definePageMetaTags()}>
-      <section className="products padding-bottom--100">
-        <ContainerBox>
-          {loading ? (
-            <ProductPlaceholder marginLevel={16} rows={4} />
-          ) : (
-            <ProductsList products={items} />
-          )}
-        </ContainerBox>
-      </section>
+      {error ? (
+        <ErrorBox description="Lo siento Ocurrio un error. Ya estamos trabajando para resolverlo." title="Desculpe!" />
+      ) : (
+        <section className="products padding-bottom--100">
+          <ContainerBox>
+            {loading ? (
+              <ProductPlaceholder marginLevel={16} rows={4} />
+            ) : (
+              <ProductsList products={items} />
+            )}
+          </ContainerBox>
+        </section>
+      )}
     </DefaultLayout>
   );
 };

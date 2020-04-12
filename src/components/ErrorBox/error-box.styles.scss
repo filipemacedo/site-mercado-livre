@@ -1,0 +1,20 @@
+@import "../../styles/variables.scss";
+
+.error {
+ display: flex;
+ flex-direction: row;
+
+ .error__message {
+  
+  .error__message-title {
+   color: $black-lighter;
+   font-weight: 300;
+   font-size: 18px;
+  }
+
+  .error__message-description {
+   color: $dust-grey;
+   font-size: 14px;
+  }
+ }
+}
