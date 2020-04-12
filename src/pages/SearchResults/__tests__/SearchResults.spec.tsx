@@ -12,6 +12,7 @@ import store from '../../../store';
 import { ConnectedRouter } from 'connected-react-router';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import history from '../../../routes/history';
+import delay from '../../../utils/delay';
 
 const mockItem: ItemInterface = {
   description: faker.lorem.paragraph(),
@@ -92,18 +93,38 @@ describe('SearchResults Page', () => {
   });
 
   it('should define ProductsSearch input value as search query', () => {
-   const app = mount(
-     <Provider store={store}>
-       <ConnectedRouter history={history}>
-         <MemoryRouter initialEntries={['/items?search=Macbook']}>
-           <Switch>
-             <Route path="/items" component={SearchResultsPage} />
-           </Switch>
-         </MemoryRouter>
-       </ConnectedRouter>
-     </Provider>,
-   );
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items?search=Macbook']}>
+            <Switch>
+              <Route path="/items" component={SearchResultsPage} />
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
 
-   expect(app.find("ProductsSearch form input").prop("value")).toBe("Macbook")
- });
+    expect(app.find('ProductsSearch form input').prop('value')).toBe('Macbook');
+  });
+
+  it('should show ProductPlaceholder when loading is true', () => {
+    (searchItems as jest.Mock).mockImplementation(() =>
+      delay(1000, mockSearchResult),
+    );
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items?search=Macbook']}>
+            <Switch>
+              <Route path="/items" component={SearchResultsPage} />
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    expect(app.find('ProductPlaceholder')).toBeDefined();
+  });
 });
