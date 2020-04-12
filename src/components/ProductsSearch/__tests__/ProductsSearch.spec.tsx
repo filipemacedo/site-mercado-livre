@@ -18,9 +18,21 @@ describe('ProductsSearch', () => {
     const SearchInput = SearchForm.find('input');
 
     SearchInput.simulate('change', { target: { value: 'Macbook' } });
-    SearchForm.simulate("submit");
+    SearchForm.simulate('submit');
 
     expect(submitSpy).toBeCalledTimes(1);
-    expect(submitSpy).toBeCalledWith("Macbook");
+    expect(submitSpy).toBeCalledWith('Macbook');
+  });
+
+  it('should not call method onSubmit when search is empty when user submit', () => {
+    const submitSpy = jest.fn();
+
+    const app = mount(<ProductsSearch onSubmit={submitSpy} />);
+
+    const SearchForm = app.find('form.products-search');
+
+    SearchForm.simulate('submit');
+
+    expect(submitSpy).toBeCalledTimes(0);
   });
 });
