@@ -18,6 +18,7 @@ import {
   resetSearchQuery,
 } from '../../store/modules/items/items.actions';
 import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
+import pascalCase from '../../utils/pascal-case';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
   const { items, categories, loading, searchQuery }: ItemsState = useSelector(
@@ -43,7 +44,7 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     if (!searchQuery) return {};
 
     return {
-      title: `${searchQuery} no ${process.env.REACT_APP_NAME}`,
+      title: `${pascalCase(searchQuery)} no ${process.env.REACT_APP_NAME}`,
       description: `Encontrar teléfonos ${searchQuery} en el mercado libre`,
     };
   }
@@ -53,13 +54,6 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
       categories={categories}
       loading={loading}
       page={definePageMetaTags()}>
-      <Helmet>
-        <title>
-          {`${searchQuery ? `${searchQuery} no` : ''} ${
-            process.env.REACT_APP_NAME
-          } `}
-        </title>
-      </Helmet>
       <section className="products padding-bottom--100">
         <ContainerBox>
           {loading ? (
