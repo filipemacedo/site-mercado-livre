@@ -99,7 +99,35 @@ describe('Product Page', () => {
     );
 
     const ProductSection = app.find('DefaultLayout main section.product');
-    
-    expect(ProductSection.find("DesiredProductPlaceholder")).toBeDefined();
+
+    expect(ProductSection.find('DesiredProductPlaceholder')).toBeDefined();
+  });
+
+  it('should show a DesiredProductPlaceholder when is loading eq true, but loading property receive false value show DesiredProduct', async () => {
+    (findItem as jest.Mock).mockImplementation(async () =>
+      delay(1000, mockItem),
+    );
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items/valid_id']}>
+            <Switch>
+              <Route path="/items" component={Product}></Route>
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    const ProductSection = app.find('DefaultLayout main section.product');
+
+    expect(ProductSection.find('DesiredProductPlaceholder')).toBeDefined();
+
+    await delay(1500);
+
+    app.update();
+
+    expect(app.find("DesiredProduct")).toHaveLength(1);
   });
 });
