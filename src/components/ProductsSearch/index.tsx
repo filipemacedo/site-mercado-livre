@@ -24,7 +24,10 @@ const ProductsSearch: React.FC<ProductsSearchProps> = ({
       className="products-search"
       onSubmit={(e) => {
         e.preventDefault();
-        onSubmit(search);
+
+        if (search) {
+          onSubmit(search);
+        }
       }}>
       <input
         onChange={({ target }) => setSearch(target.value)}
