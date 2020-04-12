@@ -13,6 +13,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import history from '../../../routes/history';
 import delay from '../../../utils/delay';
+import getErrorMessage from '../../../utils/error-message';
 
 const mockItem: ItemInterface = {
   description: faker.lorem.paragraph(),
@@ -147,10 +148,35 @@ describe('SearchResults Page', () => {
     expect(searchQuery).toBe('Macbook');
 
     app.unmount();
-    
+
     const itemsThenUnmount = store.getState().items;
 
-    expect(itemsThenUnmount.items.length).not.toBe(mockSearchResult.items.length);
+    expect(itemsThenUnmount.items.length).not.toBe(
+      mockSearchResult.items.length,
+    );
     expect(itemsThenUnmount.searchQuery).not.toBe('Macbook');
+  });
+
+  it('should show BoxError when error is true', () => {
+    (searchItems as jest.Mock).mockImplementation(() => {
+      throw {
+        status: 500,
+      };
+    });
+
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items?search=Macbook']}>
+            <Switch>
+              <Route path="/items" component={SearchResultsPage} />
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    expect(app.find('ErrorBox')).toBeDefined();
+    expect(app.find('ErrorBox').prop('description')).toBe(getErrorMessage(500));
   });
 });
