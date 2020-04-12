@@ -1,5 +1,6 @@
 @import './animations.scss';
 @import './variables.scss';
+@import './fonts.scss';
 
 @each $spacing in $spacing-levels {
   .margin--#{nth($spacing, 1)} {
@@ -44,21 +45,6 @@
   .padding-bottom--#{nth($spacing, 1)} {
     padding-bottom: #{nth($spacing, 2)};
   }
-}
-
-@font-face {
-  font-family: Proxima Nova Light;
-  src: url('../assets/fonts/proximanova-light.woff2');
-}
-
-@font-face {
-  font-family: Proxima Nova;
-  src: url('../assets/fonts/proximanova-regular.woff2');
-}
-
-@font-face {
-  font-family: Proxima Nova SemiBold;
-  src: url('../assets/fonts/proximanova-semibold.woff2');
 }
 
 html,
@@ -140,8 +126,6 @@ a {
     width: 100%;
   }
 }
-
-// MEDIA QUERIES
 
 @media (max-width: 360px) and (min-width: 320px) {
   .container {
