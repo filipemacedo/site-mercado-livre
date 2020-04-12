@@ -13,7 +13,7 @@ const ErrorBox: React.FC<ErrorBoxProps> = ({ title = 'Erro!', description = "" }
   <div className="container">
     <section className="error box padding--16">
       <picture className="error__icon margin-right--16">
-        <img src={ErrorIcon} />
+        <img alt="Icon error" src={ErrorIcon} />
       </picture>
       <div className="error__message">
         <h2 className="error__message-title">{title}</h2>
