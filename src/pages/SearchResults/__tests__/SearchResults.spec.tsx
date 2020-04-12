@@ -70,4 +70,20 @@ describe('SearchResults Page', () => {
     expect(MemoProductsList).toBeDefined();
     expect(MemoProductsList.prop('products')).toEqual(mockSearchResult.items);
   });
+
+  it('should ProductList in the useEffect dispatch with correct search value', () => {
+   const app = mount(
+     <Provider store={store}>
+       <ConnectedRouter history={history}>
+         <MemoryRouter initialEntries={['/items?search=Macbook']}>
+           <Switch>
+             <Route path="/items" component={SearchResultsPage} />
+           </Switch>
+         </MemoryRouter>
+       </ConnectedRouter>
+     </Provider>,
+   );
+
+   expect(searchItems).toBeCalledWith('Macbook');
+ });
 });
