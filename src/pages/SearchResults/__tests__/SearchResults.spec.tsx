@@ -46,6 +46,9 @@ describe('SearchResults Page', () => {
     (searchItems as jest.Mock).mockImplementation(() => mockSearchResult);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it('should render ProductList based from search', () => {
     const app = mount(
       <Provider store={store}>
@@ -72,6 +75,23 @@ describe('SearchResults Page', () => {
   });
 
   it('should ProductList in the useEffect dispatch with correct search value', () => {
+    const app = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <MemoryRouter initialEntries={['/items?search=Macbook']}>
+            <Switch>
+              <Route path="/items" component={SearchResultsPage} />
+            </Switch>
+          </MemoryRouter>
+        </ConnectedRouter>
+      </Provider>,
+    );
+
+    expect(searchItems).toBeCalledWith('Macbook');
+    expect(searchItems).toBeCalledTimes(1);
+  });
+
+  it('should define ProductsSearch input value as search query', () => {
    const app = mount(
      <Provider store={store}>
        <ConnectedRouter history={history}>
@@ -84,6 +104,6 @@ describe('SearchResults Page', () => {
      </Provider>,
    );
 
-   expect(searchItems).toBeCalledWith('Macbook');
+   expect(app.find("ProductsSearch form input").prop("value")).toBe("Macbook")
  });
 });
