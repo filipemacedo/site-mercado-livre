@@ -4,14 +4,17 @@ import NavigationBreadcrumb from '../../components/NavigationBreadcrumb';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 import { ApplicationState } from '../../store';
+import NavigationBreadcrumbPlaceholder from '../../components/NavigationBreadcrumbPlaceholder';
 
 interface DefaultLayoutProps {
   categories?: string[];
+  loading?: boolean;
 }
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   categories = [],
   children,
+  loading,
 }) => {
   const searchQuery = useSelector(
     ({ items }: ApplicationState) => items.searchQuery,
@@ -27,7 +30,11 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
     <>
       <Header onSearchSubmit={onSearchSubmit} searchText={searchQuery} />
       <main>
-        <NavigationBreadcrumb categories={categories} />
+        {loading ? (
+          <NavigationBreadcrumbPlaceholder />
+        ) : (
+          <NavigationBreadcrumb categories={categories} />
+        )}
         {children}
       </main>
     </>
