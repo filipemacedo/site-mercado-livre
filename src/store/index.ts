@@ -1,6 +1,6 @@
 import { Store } from 'redux';
 import createSagaMiddleware, { SagaMiddleware } from 'redux-saga';
-import { routerMiddleware } from 'connected-react-router';
+import { routerMiddleware, RouterState } from 'connected-react-router';
 
 import history from '../routes/history';
 import rootSaga from './modules/rootSaga';
@@ -10,6 +10,7 @@ import { ItemsState } from './modules/items/items.types';
 
 export interface ApplicationState {
 	items: ItemsState;
+	router: RouterState;
 }
 
 const sagaMiddlewares: SagaMiddleware<object> = createSagaMiddleware();
