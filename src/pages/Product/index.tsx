@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import ContainerBox from '../../components/ContainerBox';
 import DefaultLayout from '../../layouts/Default';
 import DesiredProduct from '../../components/DesiredProduct';
