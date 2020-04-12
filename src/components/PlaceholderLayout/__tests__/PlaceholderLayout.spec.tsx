@@ -22,4 +22,14 @@ describe('PlaceholderLayout component', () => {
       'Lorem ipsum',
     );
   });
+
+  it('should render PlaceholderLayout with custom className', () => {
+    const app = mount(
+      <PlaceholderLayout rows={2} className="custom">
+        <p>Lorem ipsum</p>
+      </PlaceholderLayout>,
+    );
+
+    expect(app.find('.placeholder-layout.custom')).toBeDefined();
+  });
 });
