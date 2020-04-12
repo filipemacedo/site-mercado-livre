@@ -1,7 +1,10 @@
 import React from 'react';
 
-import './breadcrumb-list.styles.scss';
 import { Link } from 'react-router-dom';
+
+import RightIcon from '../../assets/icons/right.svg';
+
+import './breadcrumb-list.styles.scss';
 
 interface Props {
   categories: string[];
@@ -23,6 +26,9 @@ const BreadcrumbList: React.FC<Props> = ({ categories }) => {
           }
           key={element.replace(' ', '')}>
           <Link to={`/items?search=${element}`}>{element}</Link>
+          {!isLastCategory(index) && (
+            <img className="icon-arrow-right" src={RightIcon} />
+          )}
         </li>
       ))}
     </ul>
