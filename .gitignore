@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+__snapshots__
+
+*.todo
+
+.env.*
+!.env.example
 # testing
 /coverage
 

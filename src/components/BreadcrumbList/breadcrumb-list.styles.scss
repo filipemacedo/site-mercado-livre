@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.navigation-breadcrumb__list {
+  list-style: none;
+
+  li {
+    display: inline;
+    color: $dust-grey;
+    font-size: 14px;
+
+    &.navigation-breadcrumb__list__element--active {
+      font-weight: bold;
+    }
+
+    img.icon-arrow-right {
+      margin: 0 5px;
+    }
+  }
+}

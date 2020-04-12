@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+form.products-search {
+  flex: 1;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+    border-radius: 3px 0px 0px 3px;
+    height: 38px;
+    font-size: 14px;
+    color: $dust-grey;
+    border: none;
+    padding: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    height: 38px;
+    width: 41px;
+    background: $grey-nuance-lighter;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 18px;
+      max-height: 18px;
+    }
+  }
+}

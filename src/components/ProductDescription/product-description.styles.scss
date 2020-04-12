@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.product__description {
+  h2 {
+    color: $black-lighter;
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $dust-grey;
+    white-space: pre-wrap;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .product__description {
+    text-align: center;
+  }
+}

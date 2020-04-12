@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+header.nav-header {
+ height: 57px;
+ background: $yellow;
+ display: flex;
+ flex-direction: row;
+
+ .container {
+  display: flex;
+ }
+}

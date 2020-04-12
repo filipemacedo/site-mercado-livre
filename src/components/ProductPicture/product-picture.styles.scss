@@ -1,0 +1,69 @@
+@mixin fixedSize($value) {
+  max-height: $value;
+  max-width: $value;
+  height: $value;
+  width: $value;
+}
+
+.product__picture {
+  &,
+  img {
+    @include fixedSize(180px);
+  }
+
+  img {
+    border-radius: 4px;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .product__picture {
+    &,
+    img {
+      @include fixedSize(130px);
+    }
+  }
+
+  .product__picture--large {
+    &,
+    img {
+      @include fixedSize(250px);
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product__picture {
+    &,
+    img {
+      @include fixedSize(180px);
+    }
+  }
+
+  .product__picture--large {
+    &,
+    img {
+      @include fixedSize(350px);
+      object-fit: contain;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .product__picture--large {
+    &,
+    img {
+      @include fixedSize(680px);
+      object-fit: contain;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
