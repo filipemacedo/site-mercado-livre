@@ -25,7 +25,7 @@ describe('ProductPlaceholder Component', () => {
       ),
     ).toBeDefined();
   });
-  
+
   it('should render ProductPlaceholder with custom props', () => {
     const app = mount(
       <ProductPlaceholder marginLevel={16} rows={2} large={true} />,
@@ -53,5 +53,17 @@ describe('ProductPlaceholder Component', () => {
 
     expect(app.find('PlaceholderLayout p.custom')).toBeDefined();
     expect(app.find('PlaceholderLayout p.custom').text()).toBe('Lorem');
+  });
+
+  it('should render ProductPlaceholder with rows eq 2', () => {
+    const app = mount(
+      <ProductPlaceholder rows={2}>
+        <p className="custom">Lorem</p>
+      </ProductPlaceholder>,
+    );
+
+    expect(app.find('PlaceholderLayout p.custom')).toBeDefined();
+    expect(app.find('PlaceholderLayout p.custom')).toHaveLength(2);
+    expect(app.find('PlaceholderLayout p.custom').first().text()).toBe('Lorem');
   });
 });
