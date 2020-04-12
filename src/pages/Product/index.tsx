@@ -36,14 +36,18 @@ const Product: React.FC<RouteComponentProps<ProductRouterProps>> = ({
     };
   }, [match, dispatch]);
 
-  function definePageTitle() {
+  function definePageTags() {
     if (selectedItem) {
-      return `${selectedItem.title} em ${process.env.REACT_APP_NAME}`;
+      return {
+        title: `${selectedItem.title} em ${process.env.REACT_APP_NAME}`,
+        description: selectedItem.description,
+        imagePreview: selectedItem.picture,
+      };
     }
   }
 
   return (
-    <DefaultLayout page={{ title: definePageTitle() }}>
+    <DefaultLayout page={definePageTags()}>
       <section className="product">
         <ContainerBox>
           {loading && <DesiredProductPlaceholder />}

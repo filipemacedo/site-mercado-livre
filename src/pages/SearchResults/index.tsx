@@ -17,6 +17,7 @@ import {
   resetSearchItems,
   resetSearchQuery,
 } from '../../store/modules/items/items.actions';
+import { HelmetMetaTagsProps } from '../../components/HelmetMetaTags';
 
 const Products: React.FC<RouteComponentProps> = ({ location }) => {
   const { items, categories, loading, searchQuery }: ItemsState = useSelector(
@@ -38,15 +39,20 @@ const Products: React.FC<RouteComponentProps> = ({ location }) => {
     };
   }, [location]);
 
-  function definePageTitle() {
-    return searchQuery && `${searchQuery} no ${process.env.REACT_APP_NAME}`;
+  function definePageMetaTags(): HelmetMetaTagsProps {
+    if (!searchQuery) return {};
+
+    return {
+      title: `${searchQuery} no ${process.env.REACT_APP_NAME}`,
+      description: `Encontrar teléfonos ${searchQuery} en el mercado libre`,
+    };
   }
 
   return (
     <DefaultLayout
       categories={categories}
       loading={loading}
-      page={{ title: definePageTitle() }}>
+      page={definePageMetaTags()}>
       <Helmet>
         <title>
           {`${searchQuery ? `${searchQuery} no` : ''} ${
